@@ -1,0 +1,46 @@
+.pure-menu{
+  &.header{
+    background: $head-green;
+    width: 100%;
+    height: 2.25em;
+    @extend %text-center;
+    color: $white;
+    @include font-size(24);
+    position: relative;
+    a{
+      position: absolute;
+      left: 0.2em;
+      top: 0.2em;
+      color: #fff;
+      @include font-size(24);
+    }
+    ul{
+        top:5px!important;
+    }
+  }
+}
+#paper-pdf-area{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0,0,0,.8);
+  #pdf-container{
+    width: 100%;
+    height: 100%;
+  }
+  .close-btn{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background: rgba(0,0,0,.5);
+    text-align: center;
+    color: $white;
+    @include font-size(30);
+  }
+}

@@ -1,0 +1,15 @@
+<div class="knowledge pure-g-r">
+  
+     <section class="knowledge_heard">
+          <p>请选择练习范围，提升考试分数</p>
+          <span class="fa fa-play fa-rotate-90"></span>   	     
+     </section>
+     <div class="konwledgeList">
+     	 <ul class="pure-g">
+     	 	  <li class="pure-u-1-2"><div>{{questionId}}<span> 3 + </span></div></li>
+       </ul>
+     </div>
+   
+     
+
+</div>

@@ -1,0 +1,107 @@
+﻿<div class="score pure-g-r">
+    <section class="pure-u-1-1 subject">
+        <div class="pure-menu pure-menu-open pure-menu-horizontal subject-menu">
+            <ul>
+                <li class="subject-item" ng-repeat="subject in subjectList"
+                    ng-class="{'pure-menu-selected': currentSubject === subject}" ng-click="selectSubject(subject,$index)">
+                    <a>{{ subject.name }}</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <article class="pure-u-1-1 scores">
+        <ul>
+            <li class="score-item" ng-repeat="score in scoreList">
+                <div class="score-detail">
+                    <div class="score-left">
+                        <div class="lefttext">
+                            <div class="scoretotal" ng-bind="score.total"></div>
+                            <div style="display:inline;margin:0;padding:0;">分</div>
+                            <div class="scoretext">我的得分</div>
+                        </div>
+
+                    </div>
+                    <div class="score-right">
+                        <div class="righttext">
+                            <div class="title" ng-bind="score.title"></div>
+                            <div class="scoredetail">
+                                击败了全班
+                                <span style="font-weight:bold;color:orange;" ng-bind="score.Irank + '%'"></span>的同学，与上一次考试相比
+                                <span style="font-weight:bold;color:orange;" ng-bind="score.Idir"></span>！
+                            </div>
+                            <div class="scoreinfos">本班最高得分：<span ng-bind="score.maxscores"></span>分 &nbsp; &nbsp;平均分：<span ng-bind="score.average">82</span>分</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="howget" ng-click="showPaper(score)">
+                    点击查看如何针对性提升成绩&nbsp;&nbsp;<span class="fa fa-arrow-circle-o-right fa-lg"></span>
+                </div>
+                <!--<p class="title" ng-bind="score.title" ng-click="showPaper(score)"></p>
+            <div class="score-detail">
+                <p>总分：<span ng-bind="score.total"></span></p>
+                <p>平均分：<span ng-bind="score.average"></span></p>
+                <p>
+                    <span ng-class="{up: score.up_down === '↑',down: score.up_down=== '↓',
+                    stay: score.up_down==='-'}" ng-bind="score.up_down"></span>
+                    <span class="diff" ng-bind="score.diff"></span>&nbsp;名
+                </p>
+            </div>-->
+                <!--
+                            <div class="score-detail col-xs-12 .col-sm-12">
+                            <div class="col-xs-3 col-sm-3 scoreleft">
+                                <span ng-bind="score.total"></span>分
+                                <br /><br />我的得分
+                            </div>
+                            <div class="col-xs-9 col-sm-9 scoreright">
+                                <div class="title" ng-bind="score.title"></div><br />
+                                <div class="jibailv">击败了全班<span class="jibai" ng-bind="score.Irank"></span><span class="jibai">%</span>的同学，与上一次考试相比<span style="font-weight:bold;color:orange;" ng-bind="score.Idir"></span>！</div><br />
+                                <div class="scoress">本班最高得分：<span ng-bind="score.maxscores"></span>分 &nbsp; &nbsp;平均分：<span ng-bind="score.average">82</span>分</div>
+                            </div>
+                        </div>
+                        <div class="view-pageinfo" ng-click="showPaper(score)">
+                            点击查看如何针对性提升成绩&nbsp;<span class="fa fa-arrow-circle-o-right"></span>
+                        </div>
+                            [
+            .view-pageinfo {
+                color: white;
+                background-color: #41B39C;
+                width: 90%;
+                margin: 0 auto;
+                padding: 0 auto;
+                text-align: center;
+                border-radius: 5px;
+                line-height: -5px;
+                padding-bottom: 2%;
+            }
+            .scoreright{
+                font-size:12px;
+                padding-right: 0!important;
+            }
+            .scoreleft{
+                font-size:12px;
+                padding: 0!important;
+                margin:5% 0 0 0!important;
+            }
+
+            .scoreleft span {
+                font-weight: bold;
+                color: #E10907;
+                font-size: 18px;
+            }
+
+            .jibai {
+                font-weight: bold;
+                color: orange;
+            }
+            .jibailv{
+                margin-bottom:1%;
+            }
+            .scoress{
+                margin-bottom:3%;
+            }
+                            ]
+                        -->
+            </li>
+        </ul>
+    </article>
+</div>

@@ -1,0 +1,210 @@
+.errorpage {
+    width: 100%;
+    height: 100%;
+    background-color: #F5F5F5;
+    letter-spacing: normal;
+    @include font-size(16);
+
+    .toptext {
+        padding: 5% 5%;
+
+        .rights {
+            text-align: right;
+        }
+    }
+
+    .center {
+        background-color: #fff;
+        width: 100%;
+        height: auto;
+
+        .topfrom {
+            @include font-size(13);
+            margin: 0 auto;
+            width: 96%;
+            color: #696969;
+            padding: 3% 0;
+        }
+
+        .centline {
+            background-color: #EAEAEA;
+            height: 1px;
+            width: 97%;
+            margin: 0 auto;
+        }
+
+        .centcontent {
+            .contenttext {
+                img{
+                    max-width:100%;
+                    vertical-align:middle;
+                }
+                padding: 1% 4% 1% 4%;
+            }
+
+            .selections {
+                width: 100%;
+                margin: auto;
+
+                .selection {
+                    width: 50%;
+                    display: inline-block;
+
+                    .select {
+                        display: inline-block;
+                    }
+
+                    .symbol {
+                        display: inline-block;
+                    }
+
+                    .answer {
+                        display: inline-block;
+                    }
+
+                    .rightSymbol {
+                        visibility: hidden;
+                        display: inline-block;
+                        background: red;
+                        width: 1rem;
+                        height: 1rem;
+                    }
+                }
+            }
+
+            .showAnalysis {
+                display: none;
+            }
+        }
+    }
+
+
+
+    .watchanalysis {
+        .buttons {
+            width: 100%;
+            margin: auto;
+            height: 60px;
+            margin-top: 2%;
+
+            .subButton {
+                display: inline-block;
+                width: 97%;
+                border-radius: 5px;
+                color: white;
+                font-weight: 300;
+                font-size: 16px;
+                font-family: "Microsoft YaHei","Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                text-decoration: none;
+                text-align: center;
+                line-height: 50px;
+                height: 50px;
+            }
+
+            .buttonAnswer {
+                cursor: pointer;
+                background: #32C0B9;
+                margin-left: 0;
+                float: left;
+            }
+
+            .buttonAnalysis {
+                cursor: pointer;
+                background: #41B39C;
+                margin-left: 2%;
+                float: left;
+            }
+
+            .buttonPaper {
+                cursor: pointer;
+                background: #FF851B;
+                margin-left: 2%;
+                float: left;
+            }
+        }
+    }
+
+    .foot {
+        margin-top:5%;
+        text-align:center;
+        width: 100%;
+        height: 30px;
+        .changeItem {
+            margin: auto;
+            position: fixed;
+            text-align:center;
+            left: 0;
+            bottom: 65px;
+            width: 100%;
+            height: 30px;
+            z-index: 20;
+            background: #fff;
+            .previous {
+                margin-right:5%;
+                background-image:url(../../../assets/images/left.png);
+                background-repeat:no-repeat;
+                color:#fff;
+                @include font-size(14);
+                background-color:#41B39C;
+                width: 80px;
+                height: 30px;
+                line-height: 30px;
+                display: inline-block;
+                cursor: pointer;
+
+                .arrow {
+                    display: inline-block;
+                    width: 30px;
+                    height: 28px;
+                }
+
+                .textSelect {
+                    display: inline-block;
+                }
+            }
+
+            .showOrder {
+                width: auto;
+                height: 30px;
+                line-height: 30px;
+                display: inline-block;
+                .currentPage {
+                    color:#41B39C;
+                    display: inline-block;
+                }
+
+                .backslash {
+                    display: inline-block;
+                }
+
+                .totalPage {
+                    display: inline-block;
+                }
+            }
+
+            .next {
+                margin-left:5%;
+                background-image:url(../../../assets/images/right.png);
+                background-repeat:no-repeat;
+                background-position:right;
+                color:#fff;
+                @include font-size(14);
+                background-color:#41B39C;
+                cursor: pointer;
+                height: 30px;
+                line-height: 30px;
+                width: 80px;
+                display: inline-block;
+
+            }
+        }
+    }
+
+    .fa-star {
+        color: #fb8013;
+    }
+
+    .red {
+        color: #F95F5F;
+    }
+}

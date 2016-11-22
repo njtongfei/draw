@@ -1,0 +1,22 @@
+﻿/*index1*/
+.top{
+    background: -webkit-linear-gradient(#5291E7, #fff);
+    background: -o-linear-gradient(#5291E7, #fff);
+    background: -moz-linear-gradient(#5291E7, #fff); 
+    background: linear-gradient(#5291E7, #fff); 
+    height:auto;
+}
+*{font-family: '微软雅黑','Arial';}
+.userinfo{width:200px;margin:0 auto;padding:0 auto;}
+.teachname{font-size: 45px;}
+.mypoint{font-size: 25px;}
+.points{font-size: 55px;color: #ff6a00;}
+.teachname{font-size: 55px;color: #000;font-family: '微软雅黑','Arial';}
+.up{border:1px dashed transparent;text-align: center;}
+.up table tr{border:1px solid #ddd;}
+.tab{overflow:hidden;zoom:1;background-color:#fff;border:1px solid #000;}
+.tab span{height:30px;text-align: center;line-height: 30px;background-color:#fff;}
+
+.scores{margin-top:5%;margin-bottom:5%;}
+.scoresm{padding:40px 0 40px 40px;}
+.cuxiao{background-color:#b9defe;border-radius: 20px;border:0;border:1px solid #000;height:auto;width:90%;margin:0 auto;padding:0 auto;}

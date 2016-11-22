@@ -1,0 +1,2 @@
+.martop{margin-top:0.5%;}
+#exam-chart svg tspan{display:none;}

@@ -1,0 +1,35 @@
+﻿<div class="choseclass">
+    <div style="clear:both;">&nbsp;</div>
+    <div class="col-xs-12 col-md-12">
+        <select style="color:black;" class="form-control col-md-6 col-xs-6" ng-model="currentClass" ng-options="jsclass.name for jsclass in currentClassList">
+            <option value="">请选择</option>
+        </select>
+    </div>
+    <div style="clear:both;">&nbsp;</div>
+</div>
+<div class="up">
+    <!--班级微信，积分，作业提交-->
+    <table id="test" class="table table-hover table-bordered">
+        <thead>
+            <tr style="text-align:center;">
+                <th>姓名</th>
+                <th>积分</th>
+                <th>微信</th>
+                <th>作业</th>
+            </tr>
+        </thead>
+        <tbody class="textshow">
+            <tr ng-repeat="stuinfo in studentList" class="tabletdline">
+                <td>{{stuinfo.studentName}}</td>
+                <td>{{stuinfo.studentPoint}}</td>
+                <td>{{stuinfo.studentWxBind}}<span><img ng-hide="'{{stuinfo.studentWxBind}}' !== '已绑定'" src="/Tclient/assets/images/jp-stu.png" width="20" height="25" /><img ng-hide="'{{stuinfo.studentWxBind}}' !== '未绑定'" src="/Tclient/assets/images/jp-stu-black.png" width="20" height="25" /></span></td>
+                <td>
+                    <button class="btn btn-primary" ng-click="goPDF(stuinfo.studentId)">
+                        <span class="fa fa-file-pdf-o"></span>&nbsp;&nbsp;&nbsp;下载试卷
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="bar"></div>
+</div>

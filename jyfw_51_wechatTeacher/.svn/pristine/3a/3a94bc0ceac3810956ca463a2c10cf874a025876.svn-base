@@ -1,0 +1,34 @@
+﻿<div class="box box-primary">
+    <div class="box-header">
+        <div class="pull-right martop">
+            <button class="btn btn-primary" ng-click="goBack()">
+                <span class="glyphicon glyphicon-arrow-left"></span>返回
+            </button>
+        </div>
+    </div>
+    <div class="box-body">
+        <label>题目：</label>
+        <div id="qst"></div>
+        <div id="optionA"></div>
+        <div id="optionB"></div>
+        <div id="optionC"></div>
+        <div id="optionD"></div>
+        <br>
+        <label>答案与解析：</label>
+        <div class="imgchose" id="ans"></div>
+        <div class="imgchose" id="ana"></div>
+        <br>
+        <label>本题错误学生（共{{falseNum}}人）：</label>
+        <table class="table table-striped text-center texttable">
+            <tr ng-repeat="row in trs track by $index" ng-init="rowIndex = $index">
+                <td ng-repeat="i in tds track by $index">{{falseStudents[rowIndex * 5 + $index]}}</td>
+            </tr>
+        </table>
+        <div>
+            <label>推荐题目：</label>
+            <div id="tuijian">
+
+            </div>
+        </div>
+    </div>
+</div>

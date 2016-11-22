@@ -1,0 +1,44 @@
+.zybc{
+    .subject-menu{
+        overflow-x: auto;
+        overflow-y: hidden;
+       
+    }
+    .subject-menu ul{
+        margin: 0;
+        padding: 0;
+        min-width:600px;
+    }
+    .subject-menu ul li{
+ 
+        background: #f3f1f2;
+        padding: 0;
+        margin: 0;
+        float: left;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        border-bottom: #e0dedf 1px solid;
+        min-width:80px;
+       
+        a{
+            color: #5d5d5d;
+            border-right: #e0dedf 1px solid;
+            display: block;
+            span.n{
+                color: #fd7f11;
+                margin-left:1px;
+            }
+        }
+    }
+    .TestTit{
+        background: #fff;
+    }
+    
+}
+.pure-menu-selected a{
+    background: #ffffff;
+}
+.zybc .subNumber {
+    margin-bottom:5px;
+} 

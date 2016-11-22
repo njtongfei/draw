@@ -1,0 +1,37 @@
+<div class="account-binding pure-g-r">
+  <span class=" pure-u-1-1   button-dropdown button-dropdown-primary" data-buttons="dropdown">
+  	<span class="icon-fw"> <img src="/assets/images/user_Home.png"></span>
+    <button class="pure-u-1-1 button button-primary">
+        <span ng-bind="currentSchool.name"></span><i class="vertical-align fa fa-chevron-circle-down fa-2x"></i>
+    </button>
+ 
+    <ul class="button-dropdown-list green-button-dropdown-list">
+        <li ng-repeat="school in schoolList" ng-click="selectSchool(school)">
+            <a ng-bind="school.name"></a>
+        </li>
+    </ul>
+  </span>
+    <span class=" pure-u-1-1  button-dropdown button-dropdown-primary" data-buttons="dropdown">
+    	<span class="icon-fw"> <img src="/assets/images/user_Icon.png"></span>
+        <button class="pure-u-1-1 button button-primary">
+            <span ng-bind="currentRelation.name"></span><i class="vertical-align fa fa-chevron-circle-down  fa-2x"></i>
+        </button>
+
+        <ul class="button-dropdown-list green-button-dropdown-list">
+            <li ng-repeat="relation in relationList" ng-click="selectRelation(relation)">
+                <a ng-bind="relation.name"></a>
+            </li>
+        </ul>
+      </span>
+    <div class="pure-u-1-1 btn-input account">
+        <input type="text" ng-model="accountName" placeholder="用户名"/>
+    </div>
+    <div class="pure-u-1-1 btn-input pwd">
+        <input type="password" ng-model="password" placeholder="密码"/>
+    </div>
+    <span class="pure-u-1-1 submit-btn" >
+    <button class="pure-u-1-1 button button-primary button-wide" ng-click="submitBinding()">
+        <i class="fa fa-check"></i><span style="margin-left: 0.8em">绑定</span>
+    </button>
+  </span>
+</div>

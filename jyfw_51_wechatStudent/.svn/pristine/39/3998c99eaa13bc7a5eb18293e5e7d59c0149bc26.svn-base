@@ -1,0 +1,231 @@
+.fastTest{
+    width:95%;
+    height:100%;
+    margin:auto;
+    .showPage{
+      border:1px solid #F5F5F5;
+      border-radius: 7px;    
+      background:#FFF;         
+      min-height:10em;                              
+      .blueTop{
+        width:100%;
+        height:0.5rem;
+        border-radius: 7px 7px 0px 0px;
+      }
+      .content{
+        .indexClass{
+          display: inline-block;
+        }
+        .symbol{
+          display: inline-block;
+        }
+        .description{
+          display: inline-block;
+        }
+      }
+      .picture{
+
+      }
+      .selections{
+        width:100%;
+        margin: auto;
+        .selection{
+          width:50%;
+          display: inline-block;
+          .select{
+            display: inline-block;
+          }
+          .symbol{
+            display: inline-block;
+          }
+          .answer{
+            display: inline-block;
+          }
+          .rightSymbol{
+            visibility:hidden;
+            display: inline-block;
+            background:red;
+            width:1rem;
+            height:1rem;
+          }
+        }
+      }
+    }
+
+
+    .optionButtons{
+      width:100%;
+      margin: auto;
+      height:60px;
+      line-height:60px;
+      margin-top:5%;
+      color:white;
+      display: inline-block;
+      .optionSubButton{
+        text-align: center;
+        border-radius: 5px;
+        width:19%;
+        background:#AAAAAA;
+        height:100%;
+        display: inline-block;
+        float:left;
+        margin-bottom:1%;
+      }
+      .option0{
+        margin-left:0%;
+      }
+      .option1{
+        margin-left:8%;
+      }
+      .option2{
+        margin-left:8%;
+      }
+      .option3{
+        margin-left:8%;
+      }
+      .option4{
+        margin-left:0%;
+      }
+      .option5{
+        margin-left:8%;
+      }
+      
+      .rightOption{
+        background:#63BA2B;
+      }
+
+      .optionButtonFocus{
+        background:#32C0B9;
+      }
+    }
+
+    .numbers{
+      width:100%;
+      margin: auto;
+      height:60px;
+      line-height:60px;
+      margin-top:5%;
+      border: 1px solid #E8E8E8;
+      border-radius: 5px;
+      .subNumber{
+        text-align: center;
+        width:20%;
+        background:#FFF;
+        height:100%;
+        border-width: 0px 1px 0px 0px;
+        border-style: solid;
+        border-color: #E8E8E8;
+        float:left;
+        display: inline-block;
+      }
+      .number0{
+      }
+      .number1{
+      }
+      .number2{
+      }
+      .number3{
+      } 
+      .number4{
+        border-width: 0px 0px 0px 0px;
+      }
+
+      .numberFocus{
+        background:#F2F2F2;
+      }
+
+      .rightNumber{
+        background:#63BA2B;
+      }
+      .wrongNumber{
+        background:#F4361C;
+      }
+    }
+    .buttons{
+      width:100%;
+      margin: auto;
+      height:60px;
+      margin-top:5%;
+      margin-bottom: 2%;
+      .subButton{
+        display: inline-block;
+        width:45%;
+        border-radius: 5px;
+        color:white;
+        font-weight: 300;
+        font-size: 16px;
+        font-family: "微软雅黑","Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        text-decoration: none;
+        text-align: center;
+        line-height: 60px;
+        height: 60px;
+      }
+      .buttonAnalysis{
+        cursor: pointer;
+        background:#B10DC9;
+        float:left;
+      }
+      .buttonPaper{
+        cursor: pointer;
+        background:#FF851B;
+        margin-left:10%;
+        float:left;
+      }
+    }
+
+    .changeItem{
+      text-align:center;
+      background:#FFF;
+      border:1px solid #F5F5F5;
+      width:100%;
+      height:30px;
+      border-radius: 7px;
+      margin-top:5%;
+      .previous{
+        width:32%;
+        height:30px;
+        line-height:30px;
+        display:inline-block;
+        cursor: pointer;
+        .arrow{
+          display:inline-block;
+          width:30px;
+          height:28px;
+        }
+        .textSelect{
+          display:inline-block;
+        }
+      }
+      .showOrder{
+        width:32%;
+        height:30px;
+        line-height:30px;
+        display:inline-block;
+        .currentPage{
+          display:inline-block;
+        }
+        .backslash{
+          display:inline-block;
+        }
+        .totalPage{
+          display:inline-block;
+        }
+      }
+
+      .next{
+        cursor: pointer;
+        height:30px;
+        line-height:30px;
+        width:32%;
+        display:inline-block;
+        .arrow{
+          display:inline-block;
+          width:30px;
+          height:28px;
+        }
+        .textSelect{
+          display:inline-block;
+        }
+      }
+    }
+}

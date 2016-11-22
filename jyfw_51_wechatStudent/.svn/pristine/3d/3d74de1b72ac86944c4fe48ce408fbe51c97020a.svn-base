@@ -1,0 +1,109 @@
+/**
+ * Created by Hexl on 2015/9/8.
+ */
+(function() {
+    'use strict';
+
+    /**
+     * @name  config
+     * @description config block
+     */
+    function config($stateProvider) {
+        $stateProvider
+            .state('root.pageInfo', {
+                url: '/pageInfo',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/pageInfo/pageInfo.tpl.html',
+                        controller: 'pageInfoView'
+                    }
+                }
+            });
+    }
+
+    /**
+     * @name  pageInfoView
+     * @description Controller
+     */
+    function pageInfoView($scope, $log, $q, $location, $http, $rootScope) {
+        var initPage = function () {
+            var keyPointId = $location.search().keyPointId;
+            var titles = $location.search().title;
+            $scope.title = titles;
+            var getQuestions = function() {
+                return $http({
+                    method: 'post',
+                    url: $rootScope.subDomain + $rootScope.InterfaceRouter + '/WXInterface018.ashx',
+                    data: {
+                        keyPointId: keyPointId
+                    }
+                });
+            };
+
+            $scope.paginationConf = {
+                currentPage: 1,
+                totalItems: 8000,
+                itemsPerPage: 15,
+                pagesLength: 15,
+                perPageOptions: [10, 20, 30, 40, 50],
+                onChange: function () {
+                }
+            };
+
+            //$scope.pre = function () {
+            //    if ($scope.currentIndex > 0) {
+            //        //$scope.currentShow = 'QUESTION';
+            //        $scope.currentIndex--;
+            //        $scope.currentQuestion = $scope.questionList[$scope.currentIndex];
+            //        $scope.currentHandler = undefined;
+            //    }
+            //};
+
+            //$scope.next = function () {
+            //    //$scope.currentShow = 'QUESTION';
+            //    if ($scope.currentIndex < $scope.questionList.length - 1) {
+            //        $scope.currentIndex++;
+            //        $scope.currentQuestion = $scope.questionList[$scope.currentIndex];
+            //        $scope.currentHandler = undefined;
+            //    }
+            //};
+
+            getQuestions().then(function(resp) {
+                var questions = _.map(resp.data.msg, function(item) {
+                    return {
+                        keypointId: item.keypointId,
+                        questionId: item.questionId,
+                        difficultLevel: item.difficultLevel,
+                        question:item.question,
+                        answer: item.answer,
+                        analysis: item.analysis,
+                        optionA: item.optionA,
+                        optionB: item.optionB,
+                        optionC: item.optionC,
+                        optionD: item.optionD,
+                        optionE: item.optionE,
+                        optionF: item.optionF,
+                    };
+                });
+                $scope.questionList = questions;
+                //$scope.currentIndex = 0;
+                $scope.currentQuestion = $scope.questionList[0];
+                $scope.totalNumber = $scope.questionList.length;
+            });
+        };
+        initPage();
+
+        $scope.$emit('Init_header', {
+            title: '浏览题库',
+            showBack: true,
+            fromHash: '/browse-condition?id=' + $location.search().id
+        });
+
+    }
+   
+
+    angular.module('pageInfo', ['tm.pagination'])
+        .config(config)
+        .controller('pageInfoView', pageInfoView)
+        
+})();

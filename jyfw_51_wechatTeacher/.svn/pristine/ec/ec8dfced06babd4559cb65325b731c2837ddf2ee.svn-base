@@ -1,0 +1,20 @@
+﻿<div class="box box-primary">
+    <div class="box-body">
+        <div style="padding-top:5%;padding-left:5%;">
+            <label style="margin:3% 0 -30px 3%;">班级</label>&nbsp;&nbsp;&nbsp;
+            <label ng-repeat="class in classes">
+                <input icheck type="radio" ng-model="$parent.currentClass" name="iCheck" value="{{class.classId}}">&nbsp;{{class.name}}&nbsp;
+            </label>
+        </div>
+        <table id="test" class="table table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>知识点</th>
+                    <th>错误率</th>
+                    <th>分布</th>
+                </tr>
+            </thead>
+        </table>
+        <div id="bar"></div>
+    </div>
+</div>

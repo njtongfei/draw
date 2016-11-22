@@ -1,0 +1,41 @@
+﻿<div class="myserver">
+    <div class="top">
+        <div class="headpic">
+            <img src="../../../assets/images/pic.png" style="border:1.5px solid #f2fcfb;width:80px;height:80px;border-radius:50%;" />
+        </div>
+        <div class="name" ng-bind="interinfos.username">
+
+        </div>
+        <div class="schoolclass">
+            <span ng-bind-html="interinfos.schoolname">九龙中学</span>&nbsp;&nbsp;<span ng-bind-html="interinfos.classname"></span>班
+        </div>
+    </div>
+    <div class="toptext">
+        张倩使用51教育服务已经<span class="green" ng-bind-html="interinfos.useDay">  </span>天，总成绩提升<span class="red"> 87 </span>分，击败了<span class="red"> 76% </span>的同学，再接再厉！
+    </div>
+
+    <section class="contents">
+        <span class="fa fa-male fa-2x"></span><span>成绩情况：</span>
+        <div class="upinfo">
+            <div class="scoreinfo">
+                语文高于全班83%（全校64%）的同学，名次稍微上升；<br />
+                语文高于全班83%（全校64%）的同学，名次稍微上升；<br />
+                语文高于全班83%（全校64%）的同学，名次稍微上升；<br />
+                语文高于全班83%（全校64%）的同学，名次稍微上升；<br />
+                语文高于全班83%（全校64%）的同学，名次稍微上升；<br />
+                语文高于全班83%（全校64%）的同学，名次稍微上升；
+            </div>
+        </div>
+        <span class="fa fa-file-text fa-2x"></span><span>学习分析：</span>
+        <div class="upinfo">
+            <div class="scoreinfo">
+                语文高于全班83%（全校64%）的同学，名次稍微上升；<br />
+                语文高于全班83%（全校64%）的同学，名次稍微上升；<br />
+                语文高于全班83%（全校64%）的同学，名次稍微上升；<br />
+                语文高于全班83%（全校64%）的同学，名次稍微上升；<br />
+                语文高于全班83%（全校64%）的同学，名次稍微上升；<br />
+                语文高于全班83%（全校64%）的同学，名次稍微上升；
+            </div>
+        </div>
+    </section>
+</div>

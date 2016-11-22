@@ -1,0 +1,7 @@
+<div class="dialog">
+	<div class='alertArea'>
+		<div class='backgrondArea'></div>
+		<div class='msg' ></div>
+ 		<div class='confirm' ng-click="confirmFunction()">OK</div>
+ 	</div>
+</div>

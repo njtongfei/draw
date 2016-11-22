@@ -1,0 +1,32 @@
+<div class="pure-g errorIndex">
+  <div class="island3 pure-u-1 pure-u-lg-1-3" style="height:100%; width: 100%;">
+
+   <span class="pure-u-1-1 button-dropdown button-dropdown-primary" data-buttons="dropdown">
+    <button class="pure-u-1-1 button button-primary">
+        <span ng-bind="currentSubject.courseName"></span><i class="vertical-align fa fa-angle-down"></i>
+    </button>
+
+    <ul class="button-dropdown-list">
+        <li ng-repeat="subject in subjectList" ng-click="selectSubject(subject)">
+            <a ng-bind="subject.courseName"></a>
+        </li>
+    </ul>
+  </span>
+
+  <span class="pure-u-1-1 button-dropdown button-dropdown-primary" style="margin-top:10px;" data-buttons="dropdown">
+    <button class="pure-u-1-1 button button-primary">
+        <span ng-bind="currentSection.sectionName"></span><i class="vertical-align fa fa-angle-down"></i>
+    </button>
+
+    <ul class="button-dropdown-list">
+        <li ng-repeat="section in sectionList" ng-click="selectSection(section)">
+            <a ng-bind="section.sectionName"></a>
+        </li>
+    </ul>
+  </span>
+
+    <a class="pure-button button-xlarge button-expanded pure-button-primary grayColor" ng-click='initErrorPage()'>
+      查看试题
+    </a>
+  </div>
+</div>

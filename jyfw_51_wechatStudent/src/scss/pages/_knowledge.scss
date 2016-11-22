@@ -1,0 +1,72 @@
+.knowledge_heard{
+    background: #41b39c;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    p{
+        margin: 0;
+        text-align: center;
+        color:#fff;
+        position: relative;
+    }
+    .fa{
+        position: absolute;
+        left:48%;
+        top:102px;
+        color: #41b39c;
+    }
+}
+.konwledgeList{
+    margin-top:20px;
+    padding:0 5%;
+    min-height:100px;
+    ul{
+        padding: 0;
+        margin: 0;
+        max-height:200px;
+        overflow: auto;
+        li{          
+            text-align: left;
+            margin: 5px 0;                      
+            color: #797979;
+            font-size:14px;
+            width: 100%;
+            font-size:12px;
+            clear:both;
+            
+            div.box{
+                margin:0 5px;
+                border:#41b39c 1px solid;
+                border-radius: 5px;
+                background: #fff;
+                padding:10px 10px;
+                
+            }
+            span{
+                    float:right;
+                    color:#41b19b
+                }
+            div.title{
+                float: left;
+                width: 80%;
+            }
+        }
+    }
+}
+.myerror{
+    text-align:center;
+    color:white;
+    .errorbtn{
+        height:40px;
+        line-height:260%;
+    }
+    .btnleft{
+        height:40px;
+        background-color:#A588D8;
+    }
+    .btnright{
+        height:40px;
+        background-color:#41b29c;
+    }
+}
+

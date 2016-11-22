@@ -1,0 +1,29 @@
+﻿<div class="score pure-g-r">
+    <section class="pure-u-1-1 subject">
+        <div class="pure-menu pure-menu-open pure-menu-horizontal subject-menu">
+            <ul>
+                <li class="subject-item" ng-repeat="subject in subjectList"
+                    ng-class="{'pure-menu-selected': currentSubject === subject}" ng-click="selectSubject(subject,$index)">
+                    <a>{{ subject.name }}</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <article class="pure-u-1-1 scores">
+        <ul>
+            <li class="score-item" ng-repeat="score in scoreList">
+                <p class="title" ng-bind="score.title" ng-click="showPaper(score)"></p>
+                <div class="score-detail">
+                    <p>总分：<span ng-bind="score.total"></span></p>
+                    <p>平均分：<span ng-bind="score.average"></span></p>
+                    <p>
+                        <span ng-class="{up: score.up_down === '↑',down: score.up_down=== '↓',
+                        stay: score.up_down==='-'}" ng-bind="score.up_down"></span>
+                        <span class="diff" ng-bind="score.diff"></span>&nbsp;名
+                    </p>
+                </div>
+                <hr />
+            </li>
+        </ul>
+    </article>
+</div>

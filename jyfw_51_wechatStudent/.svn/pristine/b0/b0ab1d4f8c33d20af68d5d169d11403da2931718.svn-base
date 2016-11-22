@@ -1,0 +1,42 @@
+.dialog{
+    width:100%;
+    height:100%;
+    margin-top:-54px;
+    position: absolute;
+
+    .alertArea{
+      width:100%;
+      height:100%;
+      position: fixed;
+      text-align:center;
+      .backgrondArea{
+        background: gray;
+        opacity: 0.4;
+        width:100%;
+        height:100%;
+        position: absolute;
+      }
+      
+      .msg{
+        position: absolute;
+        background: white;
+        width:80%;
+        height:40%;
+        top: 20%;
+        left: 10%;
+        padding-top: 8%;
+        padding-bottom: 8%;
+        border-radius: 5px;
+      }
+      .confirm{
+        position: absolute;
+        width:40%;
+        height:10%;
+        top: 40%;
+        left: 30%;
+        background:#5291E7;
+        padding-top: 4%;
+        border-radius: 5px;
+      }
+    }
+}

@@ -1,0 +1,43 @@
+.detailscore{
+    width:100%;
+    margin: 0 auto;
+    p{
+        margin: 0; padding: 0;
+    }
+    .detail_title{
+        color:#000;
+        font-size: 14px;
+        padding: 15px;
+    }
+    .red{
+        color: #ff1d1d;
+    }
+    .green{
+        color: #41b29c;
+    }
+    .detail{
+        position: relative;
+        margin-top: 40px;
+        font-size: 14px;
+        .left{
+            background: #41b29c;
+            color: #fff;
+            padding: 10px;
+        }
+        .right{
+            color: #fff;
+            background: #a588d7;
+            padding: 10px;
+        }
+        .myfen{
+            border:#41b29c 2px solid;
+            position: absolute;
+            
+            left:50%;
+            width:120PX;
+            height:120PX;
+            border-radius: 50%;
+            background: #FFF;
+        }
+    }
+}

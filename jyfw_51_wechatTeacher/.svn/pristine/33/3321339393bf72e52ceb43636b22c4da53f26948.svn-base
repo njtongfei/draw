@@ -1,0 +1,51 @@
+<div class="browse-condition pure-g-r">
+    <span class="pure-u-1-1 button-dropdown button-dropdown-primary" data-buttons="dropdown">
+    <button class="pure-u-1-1 button button-primary">
+        <span ng-bind="currentSubject.name"></span><i class="vertical-align fa fa-angle-down"></i>
+    </button>
+
+    <ul class="button-dropdown-list">
+        <li ng-repeat="subject in subjectList" ng-click="selectSubject(subject)">
+            <a ng-bind="subject.name"></a>
+        </li>
+    </ul>
+  </span>
+    <span class="pure-u-1-1 button-dropdown button-dropdown-primary" data-buttons="dropdown">
+    <button class="pure-u-1-1 button button-primary">
+        <span ng-bind="currentChapter.name"></span><i class="vertical-align fa fa-angle-down"></i>
+    </button>
+
+    <ul class="button-dropdown-list">
+        <li ng-repeat="chapter in chapterList" ng-click="selectChapter(chapter)">
+            <a ng-bind="chapter.name"></a>
+        </li>
+    </ul>
+  </span>
+    <span class="pure-u-1-1 button-dropdown button-dropdown-primary" data-buttons="dropdown">
+    <button class="pure-u-1-1 button button-primary">
+        <span ng-bind="currentQType.name"></span><i class="vertical-align fa fa-angle-down"></i>
+    </button>
+
+    <ul class="button-dropdown-list">
+        <li ng-repeat="qType in qTypeList" ng-click="selectQType(qType)">
+            <a ng-bind="qType.name"></a>
+        </li>
+    </ul>
+  </span>
+    <section class="pure-u-1-1 handler-type-group">
+        <div class="handler-type" ng-class="{active: currentHandler === handler}"
+             ng-repeat="handler in handlerList" ng-click="selectHandler(handler)">
+            <div class="handle-container">
+                <i class="fa" ng-class="{'fa-check-square-o': $parent.currentHandler === handler,
+            'fa-square-o': $parent.currentHandler !== handler}"></i>
+                <span ng-bind="handler.name"></span>
+            </div>
+        </div>
+    </section>
+    <section class="pure-u-1-1 query-btn">
+        <div class="button button-primary button-wide" ng-click="checkQuestions()">
+            <i class="fa fa-search"></i>
+            <span style="margin-left: 1em">查看试题</span>
+        </div>
+    </section>
+</div>

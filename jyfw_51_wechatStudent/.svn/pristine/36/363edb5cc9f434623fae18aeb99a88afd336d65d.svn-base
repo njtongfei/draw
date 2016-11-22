@@ -1,0 +1,49 @@
+<div class="fastTest detailfast" style="width: 100%;">
+	<div class="pure-g TestTit">
+		 <div class="pure-u-1-2 one">本题 <span class="red" ng-bind="leave.scores"></span>分  </div>
+		  
+		 <div class="pure-u-1-2 two" style="text-align: right;">难度系数 <span><i class="fa fa-star yellow" ng-repeat= "level in leave.difficultLevel"></i></div>
+	</div>
+    <div class='showPage'>
+        <div class='blueTop'></div>
+
+        <div class='content'>
+            <!-- <div class='indexClass' ng-bind="currentItem.index"></div>
+            <div class='symbol'>、</div> -->
+            <div class='description' ng-bind-html="currentItem.question"></div>
+        </div>
+        <img class='picture'/>
+        <div class='selections'>
+          <!--<div ng-repeat="selection in currentItem.selections" class='selection'>
+            <div class='select' ng-bind="selection.select"></div>
+            <div class='symbol'>、</div>
+            <div class='answer' ng-bind-html="selection.answer"></div>
+          </div>-->
+          <dl ng-repeat="selection in currentItem.selections" class="clearfix" ng-click="selectOption($index)" ng-class="true? 'option' + $index : 'option1'">
+          	  <dt  ng-bind="selection.select"></dt>
+          	  <dd  ng-bind-html="selection.answer"></dd>
+          </dl>
+          
+        </div>
+    </div>
+
+   <!--<div  class='optionButtons'>
+        <div class='optionSubButton' ng-repeat="selection in currentItem.selections" ng-click="selectOption($index)" ng-bind="selection.select" ng-class="true? 'option' + $index : 'option1'"
+></div>
+    </div> -->
+
+    <div class='numbers clearfix'>
+    	<div class="line"></div>
+    	<div class="linebox">
+    		    <div class='subNumber' ng-repeat="selection in paperList" ng-click="selectItem($index)" >
+		        	 <span ng-bind="$index + 1" ng-class="true? 'number' + $index : 'number1'"></span>
+		        </div>
+    	</div>
+        
+    </div>
+
+    <div class='buttons clearfix'>
+        <div class='subButton buttonAnalysis' ng-click="errorFollow()">错题追击</div>
+        <div class='subButton buttonPaper' ng-click="promote()">提升难度</div>
+    </div>
+</div>

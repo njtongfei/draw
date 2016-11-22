@@ -1,0 +1,9 @@
+<div class="pure-menu pure-menu-open pure-menu-horizontal header">
+  <a class="pure-menu-heading" href="" ng-show="showBack" ng-click="goBack()" style="display: block;
+  width: 40px; height: 50px;">
+    <i class="fa fa-angle-left"></i>
+  </a>
+  <ul>
+    <li ng-bind="title"></li>
+  </ul>
+</div>

@@ -1,0 +1,66 @@
+<div class="pageInfo pure-g-r">
+    <div class="topinfo">
+        <div style="width:90%;margin: 0 auto;padding:5% 0;">
+            <span class="red" ng-bind="title"></span>  	知识点总共错误
+            <span class="red">{{questionList.nums}}</span>题，总共扣
+            <span class="red">{{questionList.numbers}}</span>分，该知识点做对，我可以提升
+            <span class="red">{{questionList.upnumber}}</span>名！
+        </div>
+    </div>
+    <div style="width:90%;margin: 0 auto;padding:5% 0;">
+        <section class="pageInfo_heard">
+            <div class="pure-g buttons">
+                <div class="pure-u-1-2 topbtn"><button ng-click="showdetaillist()" class="look"><span class="fa fa-file-text fa-lg"></span> 查看知识点讲解</button></div>
+                <div class="pure-u-1-2 topbtn"><button ng-click="selectHandler(handler)" class="practice"><span class="fa fa-edit fa-lg"></span> 知识点补偿练习</button></div>
+            </div>
+        </section>
+        <section class="pageInfo_question" ng-repeat="question in questionList">
+            <p class="msgtitle">
+                本题：
+                <span class="red" ng-bind="question.score">4</span>
+                分&nbsp;&nbsp;难度系数：<span ng-bind="question.difficultLevel"></span>
+                <span>
+                    <i class="fa-star fa"></i>
+                    <i class="fa-star fa"></i>
+                    <i class="fa-star fa"></i>
+                    <!--<i class="fa-star fa"></i>
+                    <i class="fa-star fa"></i>-->
+                </span>&nbsp;
+                <span class="dfl">班级得分率：<span class="orange">60%</span></span>
+            </p>
+            <div class="question">
+                下列四个命题中，真命题有（）
+                <br />1、qweqwexsazdas
+                <br />2、assdfdadsa
+                <br />3、sdfsgdfa
+                <br />4、asdfgdddgdfgsdf
+                <br />A、1个    &nbsp;&nbsp;&nbsp;&nbsp;B、2个&nbsp;&nbsp;&nbsp;&nbsp;C、3个&nbsp;&nbsp;&nbsp;&nbsp;D、4个
+            </div>
+            <div style="margin-top:3%;">正确答案：<span class="red" ng-bind-html="questionList.answer">A</span></div>
+            <div class="analysis">
+                <i class="fa fa-location-arrow fa-lg green"></i>&nbsp;&nbsp;解析：<br />
+                <div class="qanswer" ng-bind="">
+                    本题考查的是真假命题的跑断，涉及的知识点有对顶角…
+                </div>
+            </div>
+
+        </section>
+
+        <tm-pagination conf="paginationConf"></tm-pagination>
+
+        <!--<article class="pagination">
+            <div class="page-indicator pre" ng-class="{disable: currentIndex === 0}" ng-click="pre()">
+                <i class="fa fa-angle-left"></i>
+                <span style="margin-left: 0.2em;">上一题</span>
+            </div>
+            <div class="page-indicator no">
+                <span ng-bind="currentIndex+1"></span>&nbsp;/&nbsp;<span ng-bind="totalNumber"></span>
+            </div>
+            <div class="page-indicator next" ng-class="{disable: currentIndex+1 === totalNumber}" ng-click="next()">
+                <span>下一题</span>
+                <i style="margin-left: 0.2em;" class="fa fa-angle-right"></i>
+            </div>
+        </article>-->
+    </div>
+
+</div>

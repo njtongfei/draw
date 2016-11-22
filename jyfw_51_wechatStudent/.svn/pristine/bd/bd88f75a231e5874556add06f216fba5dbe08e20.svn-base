@@ -1,0 +1,54 @@
+﻿/**
+ * Created by Hexl on 2015/9/7.
+**/
+(function() {
+	'use strict';
+
+	/**
+	 * @name  config
+	 * @description config block
+	 */
+	function config($stateProvider) {
+		$stateProvider
+			.state('root.myserver', {
+			    url: '/myserver',
+				views: {
+					'@': {
+					    templateUrl: 'src/app/myserver/myserver.tpl.html',
+					    controller: 'myserverCtrl'
+					}
+				}
+			});
+	}
+
+	/**
+	 * @name  myserverCtrl
+	 * @description Controller
+	 */
+	function myserver($scope, $log, $q, $http, $rootScope) {
+
+	    var initPage = function () {
+	        $http({
+	            method: 'post',
+	            url: $rootScope.baseDomain + $rootScope.InterfaceRouter + '/WXInterface025.ashx'
+	        }).then(function (resp) {
+	            var inittt = resp.data.msg;
+	            var interinfos = $scope.interinfos = inittt[0];
+	        });
+
+
+
+	    };
+
+	    initPage();
+
+		$scope.$emit('Init_header', {
+			title: '我的信息',
+			showBack: true
+		});
+	}
+
+    angular.module('myserver', [])
+		.config(config)
+		.controller('myserverCtrl', myserver);
+})();

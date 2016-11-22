@@ -1,0 +1,130 @@
+//@import 'normalize';
+
+/* Fonts
+   ========================================================================== */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.textshow{
+    text-shadow: 1px 1px 1px #ddd;
+}
+html,
+button,
+input,
+select,
+textarea,
+.pure-g [class *= "pure-u"] {
+  font-family: '微软雅黑','Arial';
+
+}
+.imgchose img{
+overflow: hidden; 
+}
+/* Defaults
+   ========================================================================== */
+
+html {
+  @include font-size($base-root-size);
+  line-height: 1.5;
+}
+::-moz-selection {
+
+  @include selection();
+}
+::selection {
+
+  @include selection();
+}
+::-webkit-input-placeholder {
+
+  @include placeholder();
+}
+::-moz-placeholder {
+
+  @include placeholder();
+}
+:-ms-input-placeholder {
+  @include placeholder();
+
+}
+img.pure-img {
+  vertical-align: middle;
+  max-width: 60%;
+  display: inline;
+
+}
+code {
+  color: $red;
+
+}
+h3 {
+  font-weight: normal;
+  @include font-size(22);
+
+}
+.pure-menu.pure-menu-horizontal {
+  background: $silver;
+
+}
+a {
+  color: $blue;
+  text-decoration: none;
+  line-height: inherit;
+}
+a:focus,
+a:hover {
+  color: darken($blue, 9);
+
+}
+a.pure-button:focus,
+a.pure-button:hover {
+  color: #fff;
+
+}
+pre {
+  code {
+    color: $black;
+    background-color: $silver;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $gray;
+    display: block;
+    padding: 0.5em;
+  }
+
+}
+h4 {
+  @include font-size(21);
+}
+
+.button-wide{
+  background-color: $lighter-blue;
+  height: 50px;
+  line-height: 50px;
+  color: $white;
+  @extend %text-center;
+  @include font-size(24);
+}
+
+.select-wide{
+  background-color: $light-blue;
+  height: 60px;
+  line-height: 60px;
+  color: $white;
+  @extend %text-center;
+  @include font-size(24);
+}
+.vertical-align{
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+ul{
+  li{
+    list-style: none;
+  }
+}

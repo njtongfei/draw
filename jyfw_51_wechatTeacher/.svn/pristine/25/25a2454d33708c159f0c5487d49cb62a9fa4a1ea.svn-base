@@ -1,0 +1,32 @@
+// Base font size in used in _mixins.scss
+$base-root-size: 16;
+
+//colors https://github.com/mrmrs/colors/blob/master/sass/_variables.scss
+$aqua: #7fdbff;
+$blue: #0074d9;
+$navy: #001f3f;
+$teal: #39cccc;
+$green: #2ecc40;
+$olive: #3d9970;
+$lime: #01ff70;
+
+// Warm
+$yellow: #ffdc00;
+$orange: #ff851b;
+$red: #ff4136;
+$fuchsia: #f012be;
+$purple: #b10dc9;
+$maroon: #85144b;
+
+// Gray Scale
+$white: #fff;
+$silver: #ddd;
+$gray: #aaa;
+$black: #111;
+
+//customize color
+$dark-blue: #5291e7;
+$light-blue: #6dbef3;
+$lighter-blue: #32c0b9;
+
+$button-height: 70px;

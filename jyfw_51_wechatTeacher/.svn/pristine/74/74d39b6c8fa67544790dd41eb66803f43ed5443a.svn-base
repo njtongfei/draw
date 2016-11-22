@@ -1,0 +1,57 @@
+.errorIndex{
+  height:100%;
+  width: 100%;
+  margin: 0 auto;
+
+  .button-dropdown{
+    &:first-child{
+      margin-top: 0;
+    }
+
+    .button{
+      font-weight: 300;
+      font-size: 1.5rem;
+      text-decoration: none;
+      text-align: center;
+      height: 100%;
+      padding: 0 40px;
+      margin: 0;
+      display: inline-block;
+      appearance: none;
+      cursor: pointer;
+      border: none;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition-property: all;
+      transition-property: all;
+      -webkit-transition-duration: .3s;
+      transition-duration: .3s;
+    }
+
+    .button-primary{
+      background: #6DBEF3;
+      i{
+        position: absolute;
+        right: 10%;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+    .button-dropdown-list{
+      li a{
+        font-size:1rem;
+        text-align: center;
+      }
+    }
+   } 
+
+   .grayColor{
+      margin-top: 3rem;
+      background-color: #32c0b9;
+      border-radius: 7px;
+      margin-left:0px;
+   }
+}

@@ -1,0 +1,33 @@
+.detailnewlist{
+     width: 100%;
+     margin: 0 auto;
+     background: #ebebeb;
+     .newlist{
+         padding: 0;
+         margin: 0;
+         li{
+          background: #fff;
+          padding:15px;
+          margin-bottom: 10px;
+          div.title{
+              color: #41b29c ;
+          } 
+          div.content{
+              font-size:14px;
+              color: #8d8d8d;
+              padding:10px 0;
+          }   
+         }
+     }
+     button{
+         border: none;
+         background: #41b29c;
+         color: #fff;
+         border-radius: 5px;
+         padding:15px 30px;
+         margin: 0 auto;
+         display: block;
+         width: 60%;
+     }
+     
+}

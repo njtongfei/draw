@@ -1,0 +1,23 @@
+﻿<div class="detailscore pure-g-r">
+   <section>
+   	  <div class="detail_title">张三在本次考试中获得 <span class="red">89</span> 分，超过了全班 <span class="green">86%</span> 的同学，比上一次考试提升 <span class="green">3%</span> ，再接再厉！</div>
+   	  <div class="pure-g detail">
+   	  	 <div class="pure-u-1-2 left">
+   	  	 	<p>本班最高得分：100分</p>
+					<p>本班 平 均 分： 80分</p>
+					<p>击     败     率： 83%</p>
+    	   </div>
+   	  	 <div class="pure-u-1-2 right">
+   	  	 	<p>年级最高得分：100分</p>
+					<p>年级 平 均 分： 75分</p>
+					<p>击     败     率： 80%</p>
+    	   </div>
+    	   <div class="myfen">
+    	   	      89
+    	   	      <p>我的得分</p>
+    	   </div>
+   	  </div>
+   </section>
+      
+
+</div>

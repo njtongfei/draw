@@ -1,0 +1,5 @@
+/*index1*/
+.choseclass{font-family:'Microsoft YaHei', Times, serif;}
+.please{text-align:center;line-height:30px;font-family:'Microsoft YaHei', Times, serif;}
+
+.tabletdline td{line-height:35px!important;}

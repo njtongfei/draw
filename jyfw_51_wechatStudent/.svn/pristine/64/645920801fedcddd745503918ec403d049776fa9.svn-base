@@ -1,0 +1,70 @@
+.score{
+  width: 100%;
+  .subject{
+    width: 100%;
+    height: 60px;
+    .subject-menu{
+      width: 100%;
+      ul{
+        width: 100%;
+        li.subject-item{
+          
+          width: 20%;
+          text-align: center;
+          a{
+            width: 100%;
+            height: 50px;
+            line-height: 35px;
+            @include font-size(20);
+          }
+        }
+      }
+    }
+  }
+  .scores{
+    width: 100%;
+    ul{
+      width: 100%;
+      padding: 0 1em;
+      li.score-item{
+        width: 100%;
+        margin-top: 2em;
+        hr{color:red;background-color:red;}
+        p.title{
+          width: 100%;
+          @include font-size(18);
+          font-weight: bold;
+        }
+        div.score-detail{
+          width: 100%;
+          text-align: left;
+          @extend %clearfix;
+          p{
+            width: auto;
+            display: inline-block;
+            float: left;
+            margin-right:10%;
+            &:first-child{
+              margin-left: 0;
+            }
+            span{
+              color: $orange;
+              &.up{
+                color: $green;
+              }
+              &.down{
+                color: $red;
+              }
+              &.stay{
+                color: $orange;
+              }
+              &.diff{
+                color: $black;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

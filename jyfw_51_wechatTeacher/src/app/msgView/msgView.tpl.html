@@ -1,0 +1,45 @@
+﻿<div class="box-body">
+    <div style="margin-top:1%;" class="col-sm-8 col-md-8">
+        <label>班级</label>&nbsp;&nbsp;&nbsp;
+        <label ng-repeat="class in classes">
+            <input icheck type="radio" ng-model="$parent.currentClass" name="iCheck" value="{{class.classId}}">&nbsp;{{class.name}}&nbsp;
+        </label>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <select class="form-control ng-pristine ng-valid" ng-model="cmsgmodel" ng-options="c.name for c in msgmodels"></select>
+    </div>
+
+    <br>
+    <br>
+    <label>学生</label>&nbsp;&nbsp;&nbsp;
+    <label>
+        <input icheck ng-model="checkAll" type="checkbox" checked>&nbsp;全选&nbsp;
+    </label>
+    <table class="table table-striped text-center">
+        <tr ng-repeat="row in trs" ng-init="rowIndex = $index">
+            <td ng-repeat="i in row">
+                <input ng-if="rowIndex * 5 + $index < students.length" icheck ng-model="students[rowIndex * 5 + $index].checked" type="checkbox" checked>
+                <!--<span ng-if="rowIndex * 7 + $index < students.length" ng-hide="students[rowIndex * 7 + $index].studentWxBind==='未绑定'"><img src="/app/dist/img/jp-stu.png" width="20px" height="25px"  /></span>-->
+                <label ng-if="rowIndex * 5 + $index < students.length" ng-bind-html="students[rowIndex * 5 + $index].studentName | trustHtml">
+
+                </label>
+                <span ng-if="rowIndex * 5 + $index < students.length" ng-hide="students[rowIndex * 5 + $index].studentWxBind === '未绑定'"><img src="/Tclient/assets/images/jp-stu.png" width="20" height="25" /></span>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <form role="form" ng-submit="sendMsg()">
+        <div class="form-group">
+            <textarea class="form-control" rows="4" ng-model="serviceContent.message" required style="border: 1px solid #6c6c6c"></textarea>
+        </div>
+        <div class="text-center">
+            <p ng-show="noSelection" class="text-danger">尚未选择学生！</p>
+            <p ng-show="sendSuccess" class="text-success">发送成功！</p>
+            <button type="submit" class="btn btn-primary">发送</button>
+            <label>
+                <input icheck ng-model="IsSend" type="checkbox" checked>&nbsp;同时发送短信&nbsp;
+            </label>
+        </div>
+    </form>
+</div>

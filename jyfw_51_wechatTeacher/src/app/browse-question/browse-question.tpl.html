@@ -1,0 +1,76 @@
+<div class="browse-question pure-g-r">
+    <!--<span class="pure-u-1-1 button-dropdown button-dropdown-primary" data-buttons="dropdown">-->
+        <!--<button class="pure-u-1-1 button button-primary">-->
+            <!--<span ng-bind="currentQType.name"></span><i class="vertical-align fa fa-angle-down"></i>-->
+        <!--</button>-->
+
+        <!--<ul class="button-dropdown-list">-->
+            <!--<li ng-repeat="qType in qTypeList" ng-click="selectQType(qType)">-->
+                <!--<a ng-bind="qType.name"></a>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</span>-->
+    <section class="pure-u-1-1 question-container">
+        <header></header>
+        <article>
+            <div class="area question-area" ng-show="currentShow === 'QUESTION'"
+                 ng-bind-html="currentQuestion.question | trustHtml"></div>
+            <div class="area option-area" ng-show="currentShow === 'QUESTION'">
+                <ul ng-show="!!currentQuestion.optionA">
+                    <li ng-show="!!currentQuestion.optionA">
+                        A、<div style="display: inline-block" ng-bind-html="currentQuestion.optionA | trustHtml"></div>
+                    </li>
+                    <li ng-show="!!currentQuestion.optionB">
+                        B、<div style="display: inline-block" ng-bind-html="currentQuestion.optionB | trustHtml"></div>
+                    </li>
+                    <li ng-show="!!currentQuestion.optionC">
+                        C、<div style="display: inline-block" ng-bind-html="currentQuestion.optionC | trustHtml"></div>
+                    </li>
+                    <li ng-show="!!currentQuestion.optionD">
+                        D、<div style="display: inline-block" ng-bind-html="currentQuestion.optionD | trustHtml"></div>
+                    </li>
+                    <li ng-show="!!currentQuestion.optionE">
+                        E、<div style="display: inline-block" ng-bind-html="currentQuestion.optionE | trustHtml"></div>
+                    </li>
+                    <li ng-show="!!currentQuestion.optionF">
+                        F、<div style="display: inline-block" ng-bind-html="currentQuestion.optionF | trustHtml"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="area answer-area" ng-show="currentShow === 'ANSWER'"
+                 ng-bind-html="currentQuestion.answer | trustHtml"></div>
+            <div class="area analysis-area" ng-show="currentShow === 'ANALYSIS'"
+                 ng-bind-html="currentQuestion.analysis | trustHtml"></div>
+        </article>
+    </section>
+    <section class="pure-u-1-1 btn-group">
+        <div class="btn btn-answer" ng-hide="currentShow === 'ANSWER'" ng-click="showAnswer()">答案</div>
+        <div class="btn btn-analysis" ng-class="{'left-0': currentShow === 'ANSWER'}" ng-hide="currentShow === 'ANALYSIS'"
+             ng-click="showAnalysis()">解析
+        </div>
+        <div class="btn btn-question" ng-hide="currentShow === 'QUESTION'" ng-click="showQuestion()">题目</div>
+    </section>
+    <section class="pure-u-1-1 handler-type-group">
+        <div class="handler-type" ng-class="{active: currentHandler === handler}"
+             ng-repeat="handler in handlerList" ng-click="selectHandler(handler)">
+            <div class="handle-container">
+                <i class="fa" ng-class="{'fa-check-square-o': $parent.currentHandler === handler,
+            'fa-square-o': $parent.currentHandler !== handler}"></i>
+                <span ng-bind="handler.name"></span>
+            </div>
+        </div>
+    </section>
+    <article class="pagination">
+        <div class="page-indicator pre" ng-class="{disable: currentIndex === 0}" ng-click="pre()">
+            <i class="fa fa-angle-left"></i>
+            <span style="margin-left: 0.2em;">上一题</span>
+        </div>
+        <div class="page-indicator no" >
+            <span ng-bind="currentIndex+1"></span>&nbsp;/&nbsp;<span ng-bind="totalNumber"></span>
+        </div>
+        <div class="page-indicator next" ng-class="{disable: currentIndex+1 === totalNumber}" ng-click="next()">
+            <span>下一题</span>
+            <i style="margin-left: 0.2em;" class="fa fa-angle-right"></i>
+        </div>
+    </article>
+</div>

@@ -1,0 +1,228 @@
+(function() {
+    'use strict';
+
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, ['app']);
+    });
+
+    function config($stateProvider, $urlRouterProvider, $logProvider, $httpProvider) {
+        $urlRouterProvider.otherwise('/');
+        $logProvider.debugEnabled(true);
+        $httpProvider.interceptors.push('httpInterceptor');
+        $httpProvider.defaults.withCredentials = true;
+        $stateProvider
+            .state('root', {
+                views: {
+                    'dialog': {
+                        templateUrl: 'src/common/dialog.tpl.html',
+                        controller: 'DialogCtrl'
+                    },
+                    'header': {
+                        templateUrl: 'src/common/header.tpl.html',
+                        controller: 'HeaderCtrl'
+                    },
+                    'footer': {
+                        templateUrl: 'src/common/footer.tpl.html',
+                        controller: 'FooterCtrl'
+                    }
+                },
+                resolve: {
+                    login: function($q, $http, $state, $rootScope, $log, $cookies, $location, $timeout) {
+                        var defer = $q.defer();
+                        var id = $location.search().id || '1234567';//
+                        return $http({
+                            method: 'post',
+                            url: $rootScope.baseDomain + $rootScope.InterfaceRouter + '/WX_Login.ashx',
+                            data: {
+                                key: id
+                            }
+                        }).then(function(resp) {
+                            if (resp.data.http) {
+                                if ($state.current.name === 'root.account-binding') {
+                                    //todo close the page
+                                    defer.reject();
+                                    alert('close page');
+                                    WeixinJSBridge.invoke('closeWindow', {}, function(res) {});
+                                } else {
+                                    $rootScope.subDomain = 'http://' + resp.data.http;
+                                    $rootScope.userId = resp.data.userid;
+                                    return $http({
+                                        method: 'post',
+                                        url: $rootScope.subDomain + $rootScope.InterfaceRouter + '/WXInterface011.ashx',
+                                        data: {
+                                            userid: $rootScope.userId
+                                        }
+                                    }).then(function(resp) {
+                                        $log.debug('broadcast app-ready message...');
+                                        $log.debug(new Date().getTime());
+                                        $cookies.userInfo = angular.toJson(resp.data);
+                                    });
+                                }
+                            } else {
+                                defer.resolve();
+                                $timeout(function() {
+                                    if ($state.current.name !== 'root.account-binding') {
+                                        $state.go('root.account-binding', {
+                                            id: id,
+                                            from: location.hash
+                                        });
+                                    }
+                                }, 1);
+                                return defer.promise;
+                            }
+                        });
+                    }
+                }
+            })
+            .state('root.home', {
+                url: '/',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/templet/home.html',
+                        controller: 'HomeCtrl',
+                        resolve: {
+                            data: function(DataService) {
+                                return DataService.get();
+                            }
+                        }
+                    }
+                }
+            }).state('root.improveIndex', {
+                url: '/improveIndex',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/templet/improveIndex.html',
+                        controller: 'ImproveIndexCtrl',
+                        resolve: {
+                            data: function(DataService) {
+                                return DataService.get();
+                            }
+                        }
+                    }
+                }
+            }).state('root.errorIndex', {
+                url: '/errorIndex?id&from',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/templet/errorIndex.html',
+                        controller: 'ErrorIndexCtrl',
+                        resolve: {
+                            data: function(DataService) {
+                                return DataService.get();
+                            }
+                        }
+                    }
+                }
+            }).state('root.testIndex', {
+                url: '/testIndex?id&from',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/templet/testIndex.html',
+                        controller: 'TestIndexCtrl',
+                        resolve: {
+                            data: function(DataService) {
+                                return DataService.get();
+                            }
+                        }
+                    }
+                }
+            }).state('root.errorPage', {
+                url: '/errorPage?id&from',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/templet/errorPage.html',
+                        controller: 'ErrorPageCtrl',
+                        resolve: {
+                            data: function(DataService) {
+                                return DataService.get();
+                            }
+                        }
+                    }
+                }
+            }).state('root.fastTest', {
+                url: '/fastTest?id&from',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/templet/fastTest.html',
+                        controller: 'FastTestCtrl',
+                        resolve: {
+                            data: function(DataService) {
+                                return DataService.get();
+                            }
+                        }
+                    }
+                }
+            });
+    }
+
+    function MainCtrl($log) {
+        $log.debug('MainCtrl laoded!');
+    }
+
+    function run($rootScope, $log, $http, $location, $state, $cookies) {
+        $log.debug('App is running!');
+        $rootScope.baseDomain = 'http://test.51jyfw.com';
+        $rootScope.InterfaceRouter = '/BootStrap/WX';
+        $rootScope.Interface = '/BootStrap/Interface';
+        
+        $rootScope.closePdf = function() {
+            var $pdfArea = $('#paper-pdf-area');
+            var canvas = document.getElementById('pdf-container');
+            var context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            $pdfArea.hide();
+        };
+        /**
+         * when open a new hash, send a message to init header.message will be like this:
+         * title: string  title to show on the header
+         * showBack: boolean  if show back key
+         */
+        $rootScope.$on('Init_header', function(e, data) {
+            $log.debug('get Init_header message: data = ');
+            $log.debug(data);
+            $rootScope.$broadcast('Init_header_data', data);
+        });
+    };
+
+    angular.module('app', [
+            'ngSanitize',
+            'ui.router',
+            'ngCookies',
+            'home',
+            'getting-started',
+            'common.header',
+            'common.footer',
+            'common.dialog',
+            'common.services.data',
+            'common.directives.version',
+            'common.filters.uppercase',
+            'common.filters.trustHtml',
+            'common.interceptors.http',
+            'common.services.paperPreview',
+           
+            'account-binding',
+            'buy-service',
+            'improveIndex',
+            'errorIndex',
+            'testIndex',
+            'errorPage',
+            'fastTest',
+            'score',
+            'operationcompe',
+            'browse-condition',
+            'browse-question',
+            'pageInfo',// 题目展示
+            'knowledge',//知识点
+            'detailscore',// 题目详细
+            'detailnewlist',// 题目详细
+            'upScore',//提升成绩 首页
+            'detailfast',
+            'zybc',
+            'myserver',//我的服务
+            'sharefriend'
+        ])
+        .config(config)
+        .run(run)
+        .controller('MainCtrl', MainCtrl)
+        .value('version', '1.1.0');
+})();

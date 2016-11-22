@@ -1,0 +1,61 @@
+﻿/**
+ * Created by Hexl on 2015/9/8.
+ */
+(function() {
+    'use strict';
+
+    /**
+     * @name  config
+     * @description config block
+     */
+    function config($stateProvider) {
+        $stateProvider
+            .state('root.upScore', {
+                url: '/upScore',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/upScore/upScore.tpl.html',
+                        controller: 'upScoreView'
+                    }
+                }
+            });
+    }
+
+    /**
+     * @name  upScoreView
+     * @description Controller
+     */
+    function upScoreView($scope, $log, $q, $location, $http, $rootScope) {
+        var initPage = function () {
+        	$scope.gotest = function () {
+                location.hash = '#/zybc';
+            };
+        	
+            //极速测试
+            $scope.gotestindex = function () {
+                location.hash = '#/testIndex#/browse-condition';
+            };
+            //浏览题库
+            $scope.gocondition = function () {
+                location.hash = '#/browse-condition';
+            };
+            //查看错题
+            $scope.goerrorIndex = function () {
+                location.hash = '#/errorIndex';
+            };
+        };
+        
+        initPage();
+        $scope.$emit('Init_header', {
+            title: '提升成绩',
+            showBack: true
+        });
+
+    }
+   
+
+    angular.module('upScore', [])
+        .config(config)
+        .controller('upScoreView', upScoreView)
+        
+})();

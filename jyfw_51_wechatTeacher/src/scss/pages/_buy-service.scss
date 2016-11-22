@@ -1,0 +1,85 @@
+.buy-service{
+  padding: 2em 0;
+  width: 98%;
+  margin: auto;
+  .desc{
+    border-radius: 5px;
+    border: 1px solid #f1f1f1;
+    header{
+      position: relative;
+      color: $white;
+      background: $dark-blue;
+      height: 2.5em;
+      line-height: 2.5em;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding-left: 1em;
+      .info-icon{
+        position: absolute;
+        right: 1em;
+        top: 0.8em;
+      }
+    }
+    article{
+      background: $white;
+      padding: 5px 15px;
+    }
+  }
+  .total{
+    @include font-size(18);
+  }
+  .btn-group{
+    margin: auto;
+    text-align: center;
+    .button{
+      width: 80%;
+      margin: auto;
+    }
+  }
+}
+
+.select-btn-group{
+  width: 100%;
+  @extend %clearfix;
+  .select_btn{
+    width: 48%;
+
+    background: #fff;
+    border: 1px solid #efefef;
+
+    text-align: center;
+    float: left;
+    margin-left: 4%;
+    margin-top: 10px;
+
+    &:nth-child(2n+1){
+      margin-left: 0;
+    }
+    &.select_btn-large{
+      height: 70px;
+      line-height: 70px;
+      @include font-size(24);
+      &.active{
+        color: $lighter-blue;
+        border-color: $lighter-blue;
+      }
+    }
+    &.select_btn-small{
+      height: 60px;
+      line-height: 60px;
+      @include font-size(20);
+      &.active{
+        color: $orange;
+        border-color: $orange;
+      }
+    }
+    span{
+      margin-left: 0.8em;
+    }
+  }
+}
+
+.text-danger{
+  color: $red;
+  @include font-size(20);
+}

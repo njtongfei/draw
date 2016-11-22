@@ -1,0 +1,70 @@
+.account-binding{
+  padding: 6% 0;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  .button-dropdown{
+    margin-top: 6%;
+    height: 16%;
+    max-height: $button-height;
+    display: table;
+    &:first-child{
+      margin-top: 0;
+    }
+    .button-dropdown-list{
+      li a{
+        @include font-size(24);
+      }
+    }
+    .button.button-primary{
+      background: $light-blue;
+      height: 100%;
+      line-height: 100%;
+      display: table-cell;
+      vertical-align: middle;
+      @include font-size(24);
+      span{
+        display: inline-block;
+        width: 80%;
+        overflow: hidden;
+      }
+      i{
+        position: absolute;
+        right: 10%;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+  }
+  .btn-input{
+    width: 100%;
+    height: 16%;
+    max-height: $button-height;
+    background: none;
+    margin-top: 6%;
+    input{
+      width: 100%;
+      //height: 60px;
+      height: 100%;
+      border-radius: 5px;
+      text-indent: 20px;
+      border-color: $lighter-blue;
+      border-style: solid;
+      border-width: 1px;
+    }
+  }
+  .submit-btn{
+    margin-top: 6%;
+    height: 16%;
+    max-height: $button-height;
+    display: table;
+    button{
+      height: 100%;
+      line-height: 100%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}

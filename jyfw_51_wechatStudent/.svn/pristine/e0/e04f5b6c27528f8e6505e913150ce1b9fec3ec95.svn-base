@@ -1,0 +1,49 @@
+<div class="pageInfo pure-g-r">
+  
+     <section class="pageInfo_heard">
+    	<dl class="clearfix">
+    		<dt><img src="/assets/images/soundIcon.png"></dt>
+    		<dd>等腰三角形	知识点总共错误<span class="red">{{errorquestion.nums}}</span>题，总工扣<span>{{errorquestion.numbers}}</span>分，该知识点做对，我可以提升<span class="green">{{errorquestion.upnumber}}</span>名！</dd>
+    	</dl>
+    	<div class="pure-g buttons">
+    		<div class="pure-u-1-2"><button ng-click="selectHandler(handler)" class="look"><span class="fa fa-file-text fa-lg"></span> 查看知识点讲解</button></div>
+    		<div class="pure-u-1-2"><button ng-click="selectHandler(handler)" class="practice"><span class="fa fa-edit fa-lg"></span> 知识点补偿练习</button></div>
+    	</div>
+     </section>
+     <section class="pageInfo_heard">
+     	  <p class="msgtitle">本题：<span class="red">4</span>分&nbsp;难度系数：<span><i class="fa-star fa"></i><i class="fa-star fa"></i><i class="fa-star fa"></i><i class="fa-star fa"></i><i class="fa-star fa"></i></span>&nbsp;
+     	  <span class="dfl">班级得分率：<span class="green">60%</span></span> </p>  
+     </section>
+     <!--题目详情-->
+     <article class="browse-question">
+            <div class="area question-area" ng-show="currentShow === 'QUESTION'"
+                 ng-bind-html="currentQuestion.question | trustHtml"></div>
+            <div class="area option-area" ng-show="currentShow === 'QUESTION'">
+                <ul ng-show="!!currentQuestion.optionA">
+                    <li ng-show="!!currentQuestion.optionA">
+                        A、<div style="display: inline-block" ng-bind-html="currentQuestion.optionA | trustHtml"></div>
+                    </li>
+                    <li ng-show="!!currentQuestion.optionB">
+                        B、<div style="display: inline-block" ng-bind-html="currentQuestion.optionB | trustHtml"></div>
+                    </li>
+                    <li ng-show="!!currentQuestion.optionC">
+                        C、<div style="display: inline-block" ng-bind-html="currentQuestion.optionC | trustHtml"></div>
+                    </li>
+                    <li ng-show="!!currentQuestion.optionD">
+                        D、<div style="display: inline-block" ng-bind-html="currentQuestion.optionD | trustHtml"></div>
+                    </li>
+                    <li ng-show="!!currentQuestion.optionE">
+                        E、<div style="display: inline-block" ng-bind-html="currentQuestion.optionE | trustHtml"></div>
+                    </li>
+                    <li ng-show="!!currentQuestion.optionF">
+                        F、<div style="display: inline-block" ng-bind-html="currentQuestion.optionF | trustHtml"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="area answer-area" ng-show="currentShow === 'ANSWER'"
+                 ng-bind-html="currentQuestion.answer | trustHtml"></div>
+            <div class="area analysis-area" ng-show="currentShow === 'ANALYSIS'"
+                 ng-bind-html="currentQuestion.analysis | trustHtml"></div>
+        </article>
+
+</div>

@@ -1,0 +1,46 @@
+/**
+ * Created by Hexl on 2015/9/8.
+ */
+(function() {
+    'use strict';
+
+    /**
+     * @name  config
+     * @description config block
+     */
+    function config($stateProvider) {
+        $stateProvider
+            .state('root.upScore', {
+                url: '/upScore',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/upScore/upScore.tpl.html',
+                        controller: 'upScoreView'
+                    }
+                }
+            });
+    }
+
+    /**
+     * @name  upScoreView
+     * @description Controller
+     */
+    function upScoreView($scope, $log, $q, $location, $http, $rootScope) {
+        var initPage = function () {
+          
+        };
+        
+        initPage();
+        $scope.$emit('Init_header', {
+            title: 'upScore',
+            showBack: true
+        });
+
+    }
+   
+
+    angular.module('upScore', [])
+        .config(config)
+        .controller('upScoreView', upScoreView)
+        
+})();

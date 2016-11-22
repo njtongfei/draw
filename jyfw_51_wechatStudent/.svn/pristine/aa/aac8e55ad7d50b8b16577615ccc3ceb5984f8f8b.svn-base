@@ -1,0 +1,75 @@
+/**
+ * Created by Hexl on 2015/9/8.
+ */
+(function() {
+    'use strict';
+
+    /**
+     * @name  config
+     * @description config block
+     */
+    function config($stateProvider) {
+        $stateProvider
+            .state('root.knowledge', {
+                url: '/knowledge',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/knowledge/knowledge.tpl.html',
+                        controller: 'knowledgeView'
+                    }
+                }
+            });
+    }
+
+    /**
+     * @name  knowledgeView
+     * @description Controller
+     */
+    function knowledgeView($scope, $log, $q, $location, $http, $rootScope) {
+        var initPage = function() {
+            var getQuestions = function(pids) {
+                return $http({
+                    method: 'get',
+                    url: $rootScope.subDomain + $rootScope.InterfaceRouter + '/WXInterface022.ashx',
+                    data: {
+                        pid: pids,
+                     } 
+                });
+            };
+            var pid = $location.search().pid;
+            getQuestions(pid).then(function(resp) {
+                var questions = _.map(resp.data.msg, function(item) {
+                    return {
+                        questionId: item.msg
+                        
+                    };
+                   
+                });
+           
+                
+            
+            });
+
+    
+
+ 
+
+         
+ 
+        };
+        initPage();
+
+        $scope.$emit('Init_header', {
+            title: '学年度第一期末测试',
+            showBack: true,
+            fromHash: '/browse-condition?id=' + $location.search().id
+        });
+
+    }
+   
+
+    angular.module('knowledge', [])
+        .config(config)
+        .controller('knowledgeView', knowledgeView)
+        
+})();

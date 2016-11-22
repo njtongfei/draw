@@ -1,0 +1,46 @@
+﻿<div class="buy-service pure-g-r">
+    <section class="desc pure-u-1-1">
+        <header>
+            <div class="title">购买/价格说明</div>
+            <div class="info-icon fa fa-info-circle"></div>
+        </header>
+        <article>
+            51教育服务增值服务包括：①成绩与试卷查看②极速测试③查看错题④浏览题库⑤补偿作业打印⑥错题及相关知识点打印⑦记忆重点打印
+            <br>
+            51教育服务增值服务价格：每学期500元，一次选择两学期及以上9折，一次选择初中六学期8.5折
+        </article>
+    </section>
+    <!--<section class="pure-u-1-1 service-type" style="margin-top: 1.5em;">-->
+        <!--<header>请选择您所需的服务</header>-->
+        <!--<article>-->
+            <!--<div class="select-btn-group">-->
+                <!--<div class="select_btn select_btn-large" ng-repeat="service in serviceList"-->
+                     <!--ng-class="{active: currentService === service}" ng-click="selectService(service)">-->
+                    <!--<i class="fa fa-check-circle-o"></i>-->
+                    <!--<span ng-bind="service.name"></span>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</article>-->
+    <!--</section>-->
+    <section class="pure--yu-1-1 class-type" style="margin-top: 1.5em;">
+        <header>请选择年级</header>
+        <article>
+            <div class="select-btn-group">
+                <div class="select_btn select_btn-small" ng-repeat="classX in classList"
+                     ng-class="{active: currentClassList.indexOf(classX) >= 0}" ng-click="selectClass(classX)">
+                    <i class="fa fa-check-circle-o"></i>
+                    <span ng-bind="classX.name"></span>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section class="total" style="margin-top: 1.5em;">
+        您的折扣是：<span class="text-danger" ng-bind="zhekou"></span>折&nbsp;&nbsp;购买总价：<span class="text-danger"
+                                                                                            ng-bind="total">180</span>元
+    </section>
+    <section class="pure-u-1-1 btn-group" style="margin-top: 1.5em;">
+        <div class="button button-primary button-wide" ng-click="buy()">
+            <i class="fa fa-cart-plus"></i><span style="margin-left: 0.8em">购买</span>
+        </div>
+    </section>
+</div>

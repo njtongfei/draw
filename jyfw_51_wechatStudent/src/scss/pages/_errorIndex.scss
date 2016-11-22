@@ -1,0 +1,97 @@
+.errorIndex{
+  background-color:#F5F5F5;
+  height:100%;
+  width: 100%;
+  .errorindex-top{
+      width:100%;
+      height:15%;
+      background-color:#fff;
+      .text-top-left{
+          text-align:right;
+          padding:5% 3% 5% 0;
+          color:#FE7575;
+      }
+      .text-top-right{
+          text-align:left;
+          padding:3% 5% 3% 0;
+          @include font-size(14);
+      }
+  }
+  .button-dropdown{
+    &:first-child{
+      margin-top: 0;
+    }
+    .button{
+      font-weight: 300;
+      font-size: 1rem;
+      text-decoration: none;
+      text-align: center;
+      height: 100%;
+      padding: 0 40px;
+      margin: 0;
+      display: inline-block;
+      appearance: none;
+      cursor: pointer;
+      border: none;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition-property: all;
+      transition-property: all;
+      -webkit-transition-duration: .3s;
+      transition-duration: .3s;
+    }
+
+    .button-primary{
+      border-radius:25px;
+      border:2px solid #41B39C;
+      color:#41B39C;
+      background: #fff;
+      i{
+        position: absolute;
+        right: 10%;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+    .button-dropdown-list{
+      li a{
+        border-bottom:1px solid #41B39C;
+        color:#41B39C;
+        background-color:#fff;
+        font-size:0.75rem;
+        text-align: center;
+      }
+    }
+   }
+  .red{
+      color:red;
+  }
+  .green{
+      color:green;
+  }
+  .grayColor{
+    background-color:#41B39C;
+    margin-top: 5%;
+    width: 100%;
+    /*padding: 1rem 0;*/
+  }
+  .pure-button {
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0.5em 1em;
+    color: #fff;
+    border: 1px solid #999;
+    border: none rgba(0, 0, 0, 0);
+    background-color:#41B39C;
+    text-decoration: none;
+    border-radius: 5px;
+    }
+
+  .minheight{
+    max-height: 200px;
+    overflow: auto;
+  }
+}

@@ -1,0 +1,199 @@
+﻿/**
+ * Created by Hexl on 2015/9/8.
+ */
+(function() {
+    'use strict';
+
+    /**
+     * @name  config
+     * @description config block
+     */
+    function config($stateProvider) {
+        $stateProvider
+            .state('root.detailscore', {
+                url: '/detailscore',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/detailscore/detailscore.tpl.html',
+                        controller: 'detailscoreView'
+                    }
+                }
+            });
+    }
+
+    /**
+     * @name  detailscoreView
+     * @description Controller
+     */
+    function detailscoreView($scope, $log, $q, $location, $http, $rootScope , $cookieStore) {
+        var initPage = function() {
+            var getdetailscore = function() {
+                return $http({
+                    method: 'post',
+					url: $rootScope.subDomain + $rootScope.InterfaceRouter + '/WXInterface009.ashx',
+                    data: {
+                        examid: examid, //试卷Id
+                        subject :  subject // 试卷类型名称
+                     }
+                });
+            };
+            var examid = $location.search().examid,
+                exanswerid = $location.search().exanswerid,
+                subject = $location.search().subject;
+     
+           
+            var titles ;
+            getdetailscore().then(function(resp) {
+                var getdetailscore = resp.data.msg;
+                
+                 // 遍历 
+                getdetailscore.forEach(function(data,index){
+				      if(data.examid==examid){
+				            $scope.Gmaxscores = data.Gmaxscores,
+				            $scope.Gaverage = data.Gaverage,
+				            $scope.Irank = data.Irank,
+				            $scope.maxscores = data.maxscores,
+				            $scope.score = data.score,
+				            $scope.average = data.average,
+				            $scope.Idir = data.Idir,
+				            $scope.IGrank = data.IGrank,
+				            $scope.name = data.name,
+				            $scope.direction = data.direction,
+				            $scope.Irank = data.Irank
+				      }
+				     
+			    });
+			   
+			    var tit = $scope.name;
+		        $scope.$emit('Init_header', {   
+ 		            title: tit,
+		            showBack: true,
+		            fromHash: '/score'
+		        });
+            });
+             
+            
+        };
+        var uName = angular.fromJson($cookieStore.get('userInfo'));
+        $scope.usename = uName.username;
+        // 题目难度
+	    var levelallview = function(){
+	    	 	   $http({
+	                    method: 'get',
+						url: $rootScope.subDomain + $rootScope.Interface + '/Interface01212144.ashx',
+						data :{
+							
+						}
+	                }).success(function(){
+	               	      alert(2132131231)
+	               })
+	
+	    }
+	    //知识点
+	    var knowledge = function(){
+	    	       var examid = $location.search().examid;
+	    	       $http({
+	                    method: 'POST',
+						url: $rootScope.subDomain + $rootScope.Interface + '/Interface0144.ashx',
+						data :{
+							examid : examid
+						}
+	                }).success(function(data){
+	               	    $scope.knows = data.msg
+ 	                })
+	    }
+	    $scope.selectHandler = function(data) {
+	    	   var keypointID = data;
+	    	   var userId = angular.fromJson($cookieStore.get('userInfo')).sfid;
+	    	   var examid = $location.search().examid;
+			   window.location.href = '#/pageInfo?examid=' + examid + "&keypointID=" + keypointID + "&userId="+ userId;
+        };
+        initPage();  
+        highcharts();
+        levelallview();
+        knowledge();
+    }
+    // 图表代码
+    function highcharts($scope, $log, $q, $location, $http, $rootScope , $cookieStore){
+    	(function(){
+                $('#container').highcharts({
+                    chart: {
+                        zoomType: 'xy'
+                    },
+                    title: {
+                        text: '我的成长曲线',
+                        align: 'left',
+                        style: {
+                            color: '#627887'
+                        }
+                        
+                    },
+                    xAxis: [{
+                        categories: ['1.1', '2.15', '3.5', '4.10', '5.30', '6.30',
+                            '7.15', '8.15', '9.10', '10.15', '11.06', '12.10']
+                    }],
+                    yAxis: [{ // Primary yAxis
+                        labels: {
+                            format: '{value}分',
+                            style: {
+                                color: '#89A54E'
+                            }
+                        },
+                        title: {
+                            text: '成绩以及平均分',
+                            style: {
+                                color: '#89A54E'
+                            }
+                        }
+                    }, { // Secondary yAxis
+                        title: {
+                            text: '名次',
+                            style: {
+                                color: '#4572A7'
+                            }
+                        },
+                        labels: {
+                            format: '{value} 名',
+                            style: {
+                                color: '#4572A7'
+                            }
+                        },
+                        opposite: true
+                    }],
+                    tooltip: {
+                        shared: true
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    legend: {
+                        enabled:false
+                    },
+                    series: [{
+                        name: '成绩以及平均分',
+                        color: '#4572A7',
+                        type: 'spline',
+                        yAxis: 1,
+                        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+                        tooltip: {
+                            valueSuffix: '分'
+                        }
+
+                    }, {
+                        name: '名次',
+                        color: '#66ccff',
+                        type: 'spline',
+                        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+                        tooltip: {
+                            valueSuffix: '名'
+                        }
+                    }]
+                });
+            })(jQuery);
+    }
+   
+ 
+    angular.module('detailscore', ['ngCookies'])
+        .config(config)
+        .controller('detailscoreView', detailscoreView)
+})();

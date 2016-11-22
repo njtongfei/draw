@@ -1,0 +1,48 @@
+<div class="errorPage">
+    <div class='showPage'>
+        <div class='blueTop'></div>
+        <div class='content' >
+            <!-- <div class='indexClass' ng-bind="currentPaper.index"></div>
+            <div class='symbol'>、</div> -->
+            <div class='description' ng-bind-html="currentPaper.question"></div>
+            <img class='picture'/>
+            <div class='selections'>
+                <div ng-repeat="selection in currentPaper.selections" class='selection'>
+                    <div class='select' ng-bind="selection.select"></div>
+                    <div class='symbol'>、</div>
+                    <div class='answer' ng-bind="selection.answer"></div>
+                    <div class='rightSymbol'></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class='showAnalysis'>
+            <div class='analysis' ng-bind-html="currentPaper.analysis"></div>
+            <div class='answer' ng-bind-html="currentPaper.answer"></div>
+        </div>
+    </div>
+
+    
+
+    <div class='buttons'>
+        <div class='subButton buttonAnswer' ng-click="showAnswer()">答案</div>
+        <div class='subButton buttonAnalysis' ng-click="buttonAnalysisClick()">解析</div>
+        <div class='subButton buttonPaper' ng-click="showPaper()">试卷</div>
+    </div>
+
+    <div class='changeItem'>
+        <div class='previous' ng-click="selectItem(-1)">
+            <i class="fa fa-angle-left"></i>
+            <div class='textSelect'>上一题</div>
+        </div>
+        <div class='showOrder'>
+            <div class='currentPage' ng-bind="currentIndex" ></div>
+            <div class='backslash'>/</div>
+            <div class='totalPage' ng-bind="totleNumber"></div>
+        </div>
+        <div class='next'  ng-click="selectItem(1)">
+            <div class='textSelect'>下一题</div>
+            <i class="fa fa-angle-right"></i>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+﻿<div class="box box-primary">
+    <div class="box-body">
+        <label>班级</label>&nbsp;&nbsp;&nbsp;
+        <label ng-repeat="class in classes">
+            <input icheck type="radio" ng-model="$parent.currentClass" name="iCheck" value="{{class.classId}}">&nbsp;{{class.name}}&nbsp;
+        </label>
+        <div style="clear:both;"></div>
+        <center style="margin-top:10px;margin-bottom:10px;">
+            <button class="btn btn-primary" ng-click="goClass()">
+                <span class="fa fa-line-chart fa-lg"></span>&nbsp;&nbsp;&nbsp;班级学习情况分析
+            </button>
+        </center>
+        <table id="test" class="table table-bordered table-hover tablecenter" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">姓名</th>
+                    <th style="text-align: center;">查看</th>
+                </tr>
+            </thead>
+        </table>
+        <div id="bar"></div>
+    </div>
+</div>

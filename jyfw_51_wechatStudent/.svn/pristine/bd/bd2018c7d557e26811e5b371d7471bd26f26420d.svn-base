@@ -1,0 +1,61 @@
+﻿<div class="detailscore pure-g-r">
+    <section style="background-color:#fff;">
+        <div class="detail_title" ><span ng-bind="usename"></span>  <span class="red" ng-bind="score"></span> 分，超过了全班 <span class="green" ng-bind="Irank + '%'"></span> 的同学，比上一次考试提升 <span class="green" ng-bind="direction + '%'"></span> ，再接再厉！</div>
+        <div class="pure-g detail">
+            <div class="pure-u-1-2 left">
+                <p>本班最高得分：<span ng-bind="maxscores"></span>分</p>
+                <p>本班 平 均 分： <span ng-bind="average"></span>分</p>
+                <p>击     败     率：  <span ng-bind="Irank"></span>%</p>
+            </div>
+            <div class="pure-u-1-2 right"> 
+                <p>年级最高得分：<span ng-bind="Gmaxscores"></span>分</p>
+                <p>年级 平 均 分： <span ng-bind="Gaverage"></span>分</p>
+                <p>击     败     率：  <span ng-bind="IGrank"></span>%</p>
+            </div>
+            <center class="myfen">
+                <div style="font-size:35px;" ng-bind="score"></div>
+                <hr style="width:80%;height:1px;border:1px;margin:0 auto;color:#41b29c;background-color:#41b29c;margin-bottom:5%;" />
+                我的得分
+            </center>
+        </div>
+        <div class="pure-g levelall">
+            <div class="pure-u-1-3 stytest" ng-repeat="level in levellist">
+                <span class="green">简单题</span>
+                <div>
+                    错<span class="green" ng-bind = "level.errorCount">1</span>题
+                </div>
+                <div>
+                    扣<span ng-bind="level.errorScores"></span> 分
+                </div>
+            </div>
+             
+            
+            
+           
+        </div>
+
+        <div id="container" style="min-width:100%;height:auto"></div>
+        
+        <div class="mywrong">
+            <p>我的错误知识点</p>
+            
+            
+        </div>
+        <center style="margin-top: -4.6%;"><span class="fa fa-sort-desc fa-lg" style="color:#41b29c;"></span></center>
+        <div class="konwledgeList">
+		     	 <ul class="">
+		     	 	  <li ng-repeat="know in knows" ng-click="selectHandler(know.keypointID)" >
+		     	 	  	 <div class="box clearfix">
+		     	 	  	 	<span ng-bind="'-' + know.errorScores"></span>
+		     	 	  	 	<div ng-bind="know.title" class="title"></div>
+ 		     	 	  	 </div>
+ 		     	 	  </li>
+		       </ul>
+		</div>
+		<div class="pure-g myerror">
+            <div class="pure-u-1-2 errorbtn btnleft btn" ng-click="showPaper(accessory)"><p>查看试卷</p></div>
+            <div class="pure-u-1-2 errorbtn btnright btn"ng-click="showPageInfo()"><p>错误知识点练习</p></div>
+        </div>
+    </section>
+
+</div>

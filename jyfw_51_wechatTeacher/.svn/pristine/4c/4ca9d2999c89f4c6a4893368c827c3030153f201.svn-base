@@ -1,0 +1,2 @@
+#test tbody{text-shadow: 1px 1px 1px #ddd;}
+.dataTables_empty{display:none;}

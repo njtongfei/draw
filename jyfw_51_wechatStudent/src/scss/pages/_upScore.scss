@@ -1,0 +1,38 @@
+.bgcolor{
+    font-family: 'Microsoft YaHei';
+    letter-spacing:normal;
+    background-color:#F5F5F5;
+    width:100%;
+    color:#fff;
+    line-height:15px;
+    text-align:center;
+    @include font-size(15);
+    .topred{
+        .orange{
+            color:#FED936;
+        }
+        padding:1% 0;
+        width:100%;
+        background-color:#FF6A8A;
+    }
+    .centleft{
+        margin:5% 5% 5% 0;
+        padding:5% 0;
+        width:45%;
+        float:left;
+        background-color:#34B2ED;
+    }
+    .centright{
+        margin:5% 0 5% 5%;
+        padding:5% 0;
+        width:45%;
+        float:right;
+        background-color:#90D500;
+    }
+    .btmora{
+        padding:14% 0;
+        float:left;
+        width:100%;
+        background-color:#FFA32E;
+    }
+}

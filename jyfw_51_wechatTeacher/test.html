@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <script type="text/javascript" src="src/app/script/pdf.js"></script>
+    <script type="text/javascript" src="src/vendor/hammerjs/hammer.min.js"></script>
+    <script type="text/javascript" src="src/vendor/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <canvas id="the-pdf"></canvas>
+    <button id="next">next</button>
+    <button id="pre">pre</button>
+    <button id="big">放大</button>
+    <button id="small">缩小</button>
+<script type="text/javascript">
+    var canvas = document.getElementById('the-pdf');
+    var context = canvas.getContext('2d');
+    PDFJS.getDocument('./test.pdf').then(function getPdfHelloWorld(pdf) {
+        console.error(pdf.numPages);
+        var totalPages = pdf.numPages;
+        var currentPage = 1;
+        var renderPage = function(pageNum){
+            pdf.getPage(pageNum).then(function getPageHelloWorld(page) {
+                var scale = 1;
+                var viewport = page.getViewport(scale);
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                var renderCanvas = function(height, width){
+                    $('body').width(width);
+                    $('body').height(height);
+                    canvas.height = height;
+                    canvas.width = width;
+                    var renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    page.render(renderContext);
+                };
+                renderCanvas(viewport.height, viewport.width);
+                var mcIn = new Hammer(canvas);
+                mcIn.add(new Hammer.Pinch());
+                //添加事件
+                mcIn.off('pinchout').on("pinchout", function (e) {
+                    //控制台输出
+                    console.log(e);
+                    if(scale > 1){
+                        scale -= 0.1;
+                        viewport = page.getViewport(scale);
+                        renderCanvas(viewport.height, viewport.width);
+                    }
+                });
+                var mcOut = new  Hammer(canvas);
+                mcOut.add(new Hammer.Pinch());
+                //添加事件
+                mcOut.off('pinchin').on("pinchin", function (e) {
+                    //控制台输出
+                    console.log(e);
+                    if(scale <= 3){
+                        scale += 0.1;
+                        viewport = page.getViewport(scale);
+                        renderCanvas(viewport.height, viewport.width);
+                    }
+                });
+                $('#big').click(function(){
+                    if(scale <= 3){
+                        scale += 0.1;
+                        viewport = page.getViewport(scale);
+                        renderCanvas(viewport.height, viewport.width);
+                    }
+                })
+                $('#small').click(function(){
+                    if(scale > 1){
+                        scale -= 0.1;
+                        viewport = page.getViewport(scale);
+                        renderCanvas(viewport.height, viewport.width);
+                    }
+                })
+            });
+        };
+        renderPage(currentPage);
+        var mcUp = new  Hammer(canvas);
+        mcUp.add(new Hammer.Pan());
+        mcUp.off('panup').on('panup', function(e){
+            if(currentPage > 1){
+                renderPage(--currentPage);
+            }
+        });
+        var mcDown = new  Hammer(canvas);
+        mcDown.add(new Hammer.Pan());
+        mcDown.off('pandown').on('pandown', function(e){
+            if(currentPage < totalPages){
+                renderPage(++currentPage);
+            }
+        });
+        $('#next').click(function(){
+            if(currentPage < totalPages){
+                renderPage(++currentPage);
+            }
+        });
+        $('#pre').click(function(){
+            if(currentPage > 1){
+                renderPage(--currentPage);
+            }
+        });
+    });
+</script>
+</body>
+</html>

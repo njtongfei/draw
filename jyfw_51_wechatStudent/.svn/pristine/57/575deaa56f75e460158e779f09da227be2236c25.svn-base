@@ -1,0 +1,148 @@
+﻿/**
+ * Created by Hexl on 2015/9/8.
+ */
+(function() {
+    'use strict';
+
+    /**
+     * @name  config
+     * @description config block
+     */
+    function config($stateProvider) {
+        $stateProvider
+            .state('root.detailscore', {
+                url: '/detailscore',
+                views: {
+                    '@': {
+                        templateUrl: 'src/app/detailscore/detailscore.tpl.html',
+                        controller: 'detailscoreView'
+                    }
+                }
+            });
+    }
+
+    /**
+     * @name  detailscoreView
+     * @description Controller
+     */
+    function detailscoreView($scope, $log, $q, $location, $http, $rootScope, $cookieStore) {
+
+            $(function () {
+                $('#container').highcharts({
+                    chart: {
+                        zoomType: 'xy'
+                    },
+                    title: {
+                        text: '我的成长曲线',
+                        align: 'left',
+                        style: {
+                            color: '#627887'
+                        }
+                        
+                    },
+                    xAxis: [{
+                        categories: ['1.1', '2.15', '3.5', '4.10', '5.30', '6.30',
+                            '7.15', '8.15', '9.10', '10.15', '11.06', '12.10']
+                    }],
+                    yAxis: [{ // Primary yAxis
+                        labels: {
+                            format: '{value}分',
+                            style: {
+                                color: '#89A54E'
+                            }
+                        },
+                        title: {
+                            text: '成绩以及平均分',
+                            style: {
+                                color: '#89A54E'
+                            }
+                        }
+                    }, { // Tertiary yAxis
+                        gridLineWidth: 0,
+                        title: {
+                            text: 'Sea-Level Pressure',
+                            style: {
+                                color: '#AA4643'
+                            }
+                        },
+                        labels: {
+                            formatter: function () {
+                                return this.value + ' mb';
+                            },
+                            style: {
+                                color: '#AA4643'
+                            }
+                        },
+                        opposite: true
+                    }, { // Secondary yAxis
+                        title: {
+                            text: '名次',
+                            style: {
+                                color: '#4572A7'
+                            }
+                        },
+                        labels: {
+                            format: '{value} 名',
+                            style: {
+                                color: '#4572A7'
+                            }
+                        },
+                        opposite: true
+                    }],
+                    tooltip: {
+                        shared: true
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    legend: {
+                        enabled:false
+                    },
+                    series: [{
+                        name: 'Rainfall',
+                        color: '#4572A7',
+                        type: 'spline',
+                        yAxis: 1,
+                        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+                        tooltip: {
+                            valueSuffix: ' mm'
+                        }
+
+                    }, {
+                        name: 'asd',
+                        color: '#89A54E',
+                        yAxis: 2,
+                        type: 'spline',
+                        data: [1016, 1016, 1015.9, 1015.5, 1012.3, 1009.5, 1009.6, 1010.2, 1013.1, 1016.9, 1018.2, 1016.7],
+                        tooltip: {
+                            valueSuffix: '°C'
+                        }
+                    }, {
+                        name: 'Temperature',
+                        color: '#66ccff',
+                        type: 'spline',
+                        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+                        tooltip: {
+                            valueSuffix: ' °C'
+                        }
+                    }]
+                });
+            });
+
+
+
+        $scope.$emit('Init_header', {
+            title: '2015~2016学年度第一学期期末测验',
+            showBack: true,
+            fromHash: '/browse-condition?id=' + $location.search().id
+        });
+
+    }
+    
+
+
+    angular.module('detailscore', ['ngCookies'])
+        .config(config)
+        .controller('detailscoreView', detailscoreView)
+        
+})();

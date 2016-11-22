@@ -1,0 +1,13 @@
+<div class="detailnewlist">
+     <ul class="newlist">
+     	  <li ng-repeat="newlist in newlists">
+     	  	 <div class="title"><span class="fa fa-play"></span>&nbsp;<span ng-bind="newlist.keyName"></span></div>
+     	  	 <div class="content" ng-bind-html="newlist.keyContent">
+     	  	 	       	  	 	    
+     	  	 </div>
+      	   <button ng-click="selectHandler(newlist)">知识点补偿练习</button>
+     	  </li>
+     </ul>
+     
+
+</div>

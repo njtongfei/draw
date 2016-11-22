@@ -1,0 +1,20 @@
+<div class="knowledge pure-g-r">
+  
+     <section class="knowledge_heard">
+          <p>请选择练习范围，提升考试分数</p>
+          <span class="fa fa-play fa-rotate-90"></span>   	     
+     </section>
+     <div class="konwledgeList" >
+     	 <ul class="" style="overflow:visible;">
+     	 	  <li ng-repeat="know in knowslist" ng-click="selectHandler(know.keypointID)" >
+		     	 	  	 <div class="box clearfix">
+		     	 	  	 	<span ng-bind="'-' + know.errorScores"></span>
+		     	 	  	 	<div ng-bind="know.title" class="title"></div>
+ 		     	 	  	 </div>
+ 		     	</li>
+       </ul>
+     </div>
+   
+     
+
+</div>

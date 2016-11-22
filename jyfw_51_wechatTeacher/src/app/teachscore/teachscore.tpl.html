@@ -1,0 +1,52 @@
+﻿<div class="top">
+    <div class="userinfo">
+        <div class="teachname">{{userinfo.username}}</div>
+        <hr />
+        <div class="mypoint">我的积分</div>
+        <div class="points">{{userinfo.point}}</div>
+    </div>
+</div>
+
+<div class="scores">
+    <div class="cuxiao">
+        <div class="scoresm">
+            <p>积分说明</p>
+            <p>1、每天登陆获取10积分</p>
+            <p>2、组一套试卷20积分</p>
+            <p>3、成功推荐一名学生100积分</p>
+        </div>
+    </div>
+</div>
+
+<div class="tab">
+    <!--<span class="col-xs-6 col-md-6 chosestart">积分记录</span>-->
+    <span class="col-xs-12 col-md-12">积分排行</span>
+</div>
+<div class="up">
+    <!--积分记录-->
+    <!--<table class="table table-hover">
+        <tr>
+            <td>时&nbsp;&nbsp;&nbsp;&nbsp;间</td>
+            <td>变&nbsp;&nbsp;&nbsp;&nbsp;化</td>
+            <td>原&nbsp;&nbsp;&nbsp;&nbsp;因</td>
+        </tr>
+        <tr>
+            <td>2015-12-3 16:03:56</td>
+            <td>+1</td>
+            <td>登录奖励</td>
+        </tr>
+    </table>-->
+    <!--积分排行-->
+    <table class="table table-hover tableteach">
+        <tr>
+            <td>排&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+            <td>姓&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+            <td>积&nbsp;&nbsp;&nbsp;&nbsp;分</td>
+        </tr>
+        <tr ng-repeat="teacher in teacherList">
+            <td>{{$index + 1}}</td>
+            <td>{{teacher.name}}</td>
+            <td>{{teacher.point}}</td>
+        </tr>
+    </table>
+</div>

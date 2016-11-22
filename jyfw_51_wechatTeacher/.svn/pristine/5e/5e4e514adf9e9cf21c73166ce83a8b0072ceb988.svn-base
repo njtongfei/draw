@@ -1,0 +1,14 @@
+<div class="pure-g improveIndex">
+  <div class="island3 pure-u-1 pure-u-lg-1-3">
+   
+    <a  class="pure-button button-xlarge button-expanded pure-button-primary" ng-click='goTestIndex()'>
+      极速测试
+    </a>
+    <a  class="pure-button button-xlarge button-expanded pure-button-primary" ng-click='goErrorIndex()'>
+      查看错题
+    </a>
+    <a ui-sref="/" class="pure-button button-xlarge button-expanded pure-button-primary" ng-click='goTestIndex()'>
+      浏览题库
+    </a>
+  </div>
+</div>
