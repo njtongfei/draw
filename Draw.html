@@ -1,0 +1,300 @@
+
+
+
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- 默认使用极速模式打开页面 -->
+<meta name="renderer" content="webkit"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<title>简单的翻牌抽奖动画</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+ 
+
+</head>
+<style>
+.activity .banner{height: 930px;width: 100%;min-width:1000px;}
+.activity .gameMain{width: 100%;height: 1094px;}
+.activity .gameMain .main{width: 1000px;margin: 0 auto;}
+.activity .gameMain .main .box{width: 580px;height: 580px;position: relative;margin: 0 auto;background: #2a2509;border-radius: 5px;box-shadow: 2px 2px 2px rgba(0, 0, 0, .6);overflow: hidden;}
+.activity .gameMain .main .box div{width: 180px;height: 180px;position: absolute;left: 10px;top: 0px;background: url(/images/activity/box_bg.png) no-repeat;margin-top: 10px;margin-right: 10px;border-radius: 5px;color: #fff;font-size: 40px;text-align: center;background-size:100% 100%;box-shadow: 1px 3px 0px rgba(220,68,68,1);}
+.activity .gameMain .main .box div a{color: #fff;display: block;text-decoration: none;padding-top: 36px;text-shadow: 2px 2px 2px rgba(0, 0, 0, .6);width: 100%;height: 100%;}
+.activity .gameMain .main .box div a.gbd{line-height: 90px;margin: 0}
+.activity .gameMain .main .box div p{font-size: 24px}
+.activity .gameMain .main .box div.b1{left: 10px;top: 0px;}
+.activity .gameMain .main .box div.b2{left: 200px;top: 0px;}
+.activity .gameMain .main .box div.b3{left: 390px;top: 0px;}
+.activity .gameMain .main .box div.b4{left: 10px;top: 190px;}
+.activity .gameMain .main .box div.b5{left: 200px;top: 190px;z-index: 2}
+.activity .gameMain .main .box div.b6{left: 390px;top: 190px;}
+.activity .gameMain .main .box div.b7{left: 10px;top: 380px;}
+.activity .gameMain .main .box div.b8{left: 200px;top: 380px;}
+.activity .gameMain .main .box div.b9{left: 390px;top: 380px;}
+.activity .gameMain .main .box div.yellow{background: #ffc106;box-shadow: 1px 3px 0px rgba(253,222,119,1);}.activity .gameMain .main .box div.gray{background: #999999;box-shadow: 1px 3px 0px rgba(153,153,153,1);}.activity .gameMain .main .box div.gray a{color:#fff;}
+.activity .gameMain .main .tips{margin-top: 74px;font-size:14px;}
+.alertMsg{position: fixed;left: 50%;top: 50%;z-index: 9;margin-left: -345px;margin-top: -390px;display:none;}
+.alertMsg div.boxMsg{width: 780px;height: 690px;background: #a01027;position: relative;color: #fff}
+.alertMsg div.boxMsg .msgs{font-size: 24px;color: #fff;padding-top: 120px;text-align: center;}
+.alertMsg div.boxMsg .msgs .card{width: 330px;margin: 30px auto; position: relative;}
+.alertMsg div.boxMsg .msgs .card img{position: absolute; top:-10px; left:0}
+.alertMsg div.boxMsg .msgs .quan{width: 314px;height: 150px;opacity:0;background: url(/images/activity/card_bg.png) repeat-y;transform: translateY(-140px);margin:0px auto;text-align: center; animation:move 0.8s 0.6s forwards; -webkit-animation:move 0.8s 0.6s forwards; overflow: hidden;}
+.alertMsg div.boxMsg .msgs .move{overflow: hidden;}
+@keyframes move{from{opacity:1;}to{opacity:1; transform: translateY(0px);}}
+@-webkit-keyframes move{from{opacity:1;}to{opacity:1; -webkit-transform: translateY(0px);}}
+.alertMsg div.boxMsg .msgs .quan p{font-size: 16px;}
+.alertMsg div.boxMsg .msgs .quan dl{width: 248px;margin: 20px auto 10px auto}
+.alertMsg div.boxMsg .msgs .quan dl p{margin: 0;}
+.alertMsg div.boxMsg .msgs .quan dl dt{width: 130px;font-size:70px;position: relative;line-height:70px;}
+.alertMsg div.boxMsg .msgs .quan dl dt span{font-size: 30px;line-height: 30px;position: absolute;left: 0;top: 0;}
+.alertMsg div.boxMsg .msgs .quan dl dd{font-size: 14px;text-align: left;}
+.alertMsg div.boxMsg .msgs .quan dl dd p{font-size: 24px;line-height: 24px;}
+.alertMsg i{right: -15px;top: -15px;position: absolute;cursor: pointer;}
+.alertMsg .nowClick{border:none; background:#efefef; color:#a01027; font-size:24px; border-radius:5px; padding:8px 120px; margin-top:150px;}
+.mask{position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 2;background-color: #000;filter: alpha(opacity=50);opacity: .5;}
+</style>
+<body style="background: #f5f5f5;">
+
+
+
+    <div class="activity">
+        <div class="banner"></div>
+        <div class="gameMain">
+          <div class="main">
+           <div class="box clearfix">
+                <div class="b1">
+                   <a href="javascript:;">
+	                  1元
+	                  <p>加薪券</p>
+	               </a>
+                </div>
+                <div class="b2">
+                   <a href="javascript:;">
+	                  5元
+	                  <p>加薪券</p>
+	               </a> 
+                </div>
+                <div class="b3">
+                   <a href="javascript:;" class="gbd">
+	                                                      加油
+	               </a>
+                
+                </div>
+                <div class="b4 ">
+                  <a href="javascript:;">
+	                  20元
+	                  <p>加薪券</p>
+	               </a> 
+                </div>
+                <div class="b5 gray  mainBtn" id="start">
+                 <a href="javascript:;">
+                                                       开始
+                  <p><span>0</span>次抽奖机会</p>
+                 </a>
+                                                      
+                </div>
+                <div class="b6">
+                   <a href="javascript:;">
+	                  10元
+	                  <p>加薪券</p>
+	               </a> 
+                </div>
+                <div class="b7">
+                   <a href="javascript:;">
+	                  50元
+	                  <p>加薪券</p>
+	               </a>  
+                </div>
+                <div class="b8">
+                    <a href="javascript:;" class="gbd">
+	                                                     加油
+	                </a> 
+                </div>
+                <div class="b9">
+                
+                     <a href="javascript:;">
+	                  3元
+	                  <p>加薪券</p>
+	               </a> 
+                </div>
+           </div>
+           <div class="tips">
+               <p>加薪券使用须知：</p>
+               <p>1、用户每天登录可免费获得一次加薪抽奖。</p>
+               <p>2、加薪券需在有效期内使用，过了有效期自动作废。</p>
+               <p>3、兼职用户每次全勤出勤后提现方可使用加薪券一次，每次限用一张。</p>
+               <p>4、兼职全勤出勤，可额外获取抽奖一次。</p>
+               <p>5、最终解释权归壹佰块兼职所有。</p>
+           </div>
+          </div>
+           
+        </div>
+    </div>
+    <div class="alertMsg">
+         <div class="boxMsg">
+             <div class="msgs">
+               <h2>恭喜您获得</h2>
+               <div class="card">
+                     <img src="https://images-ssl.100kuai.com/images/activity/card_Out.png" />
+                     <div class="move">
+                         <div class="quan">
+	                        <div class="callMsg">
+		                        <dl class="clearfix">
+		                           <dt class="pull-left"><span>￥</span>10</dt>
+		                           <dd class="pull-left">YUAN<p>加 薪 券</p><span style="color:#ff9dcb">COUPON</span></dd>
+		                        </dl>
+		                        <p>有效期:10.24-11.31 全勤可使用</p>
+		                    </div>  
+	                        
+	                     </div>
+                     </div>
+               </div>
+               <input type="button" value="立即领取" class="nowClick">                               
+             </div>
+             <i class="closed"><img src="https://images-ssl.100kuai.com/images/activity/close.png"></i>
+         </div>
+         
+    </div>
+
+
+//var profileId= 'bjXQ1oPkFQEZf%2B4UMRmE3w%3D%3D';
+var profileId= '';
+var path = "";
+var num = "0";
+var isClick = false;
+var isSendClick = false;
+$(function(){
+	
+	$('.nowClick').on('click',function(){
+		   location.href=path+"/personalaccount";
+	});
+	if(num != 0){
+		isClick =  true;
+	}
+    var arr = [[0,10],[0,200],[0,390],[190,10],[190,200],[190,390],[380,10],[380,200],[380,390]];
+    var arrText = ["1元<p>加薪券</p>","5元<p>加薪券</p>","加油","10元<p>加薪券</p>","20元<p>加薪券</p>","50元<p>加薪券</p>","加油","3元<p>加薪券</p>"];
+     $('#start').on('click',function(){
+	    	 if(isClick && $('#start').find('p > span').text() > 0){
+	    	 var childen = $('.box').children();
+	    	 $.each(childen , function(index,item){
+	    		 $(this).animate({left:"200px",top:"190px"} , index*105);
+	    	 })
+	    	 $('.box').children().not('.mainBtn').find('a').html('');
+	    	 setTimeout(function(){
+	    		 for(var i = 0 ; i < arr.length ; i++ ){
+		    		 $('.box').children().eq(i).animate({top:arr[i][0]+"px",left:arr[i][1]+"px"}, i*105);
+		    	 } 
+		    	 },850)
+		    	 isSendClick =  true;
+	    	 }
+	    })
+	    
+	    $('.box').children().not('.mainBtn').find('a').click(function(){
+	    	 var index = $(this).parent().index();
+	    	 if(isSendClick){
+	    		$.ajax({
+	    			type: "POST",
+ 					dataType : 'json',
+	                url: path+"/prizeDraw/pcPrizeDraw",
+	                success: function(data){
+	                	if(data !=  null){
+	                		if(data.num==-1){
+  	                			$('#start').find('p > span').text("0");
+  	                			$('.mainBtn').removeClass('yellow').addClass('gray');
+    	                		signUpRemind("您的抽奖机会已经用完了！");
+  	                		}else if(data.num==-2){
+  	                			signUpRemind("网络错误,请刷新页面！");
+  	                			return false;
+  	                		}else{
+  	                			alertMsg(index,data);
+   	                		}
+	                		isSendClick = false;
+	                	}
+	    	    		 
+	                },
+	                error : function(){
+	                	signUpRemind("网络错误,请刷新页面！");
+	                }
+	    		})
+	    	 }
+	    })
+	    
+	    function alertMsg(index , callback){
+			 var html = ''; 
+		   	 if(callback.money != '加油'){
+		   		   html  = '<dl class="clearfix"><dt class="pull-left"><span>￥</span>'+callback.money+'</dt>';
+		  		       html += '<dd class="pull-left">YUAN<p>加 薪 券</p><span style="color:#ff9dcb">COUPON</span></dd></dl>';
+		   		   html += '<p>有效期:'+callback.startDate+'-'+callback.endDate+' 全勤可使用</p>';
+		   		   $('.msgs').find('h2').text('恭喜您获得');
+		    		    
+		   	 }else{
+		   		    html = '<p style="margin-top:50px;font-size:24px;">继续努力，多兼职多机会！</p>';
+		   		    $('.nowClick').hide();
+		   		    $('.msgs').find('h2').text('很遗憾!');
+		   	 }
+		   	 $('.callMsg').html(html);  
+		   	 $('#start').find('p > span').html(callback.num);
+		   	 if($('#start').find('p > span').text() == 0){
+		   		 $('.mainBtn').removeClass('yellow').addClass('gray');
+		   	 }
+		   	 $('body').append('<div class="mask"></div>')
+		   	 $('.alertMsg').show();
+		     setHtml(index,callback)
+	   }
+    
+    // 设置初始状态
+    function setHtml(index,callback){
+	    	// 重新排序
+    	arrText = arrText.sort(randomsort)
+    	if(index>4){
+    		index=index-1;
+    	}
+    	
+    	var newText = arrText[index];
+
+    	if(callback.money == '加油'){
+    		arrText[arrText.indexOf(callback.money)] = arrText[index]
+    		arrText[index] = '加油';
+    		$('.box').children().not('.mainBtn').find('a').eq(index).html('加油');
+    	}else{
+    		arrText[returnArr(callback.money)] = arrText[index]
+    		arrText[index] = callback.money +'元<p>加薪券</p>';
+    		$('.box').children().not('.mainBtn').find('a').eq(index).html(callback.money +'元<p>加薪券</p>');
+    	}
+    	for(var i = 0 ; i < arrText.length ; i++ ){
+    		 $('.box').children().not('.mainBtn').eq(i).find('a').html(arrText[i]);
+    	}
+    	$('.box').children().not('.mainBtn').find('a').each(function(){
+    		if($(this).text()=="加油"){
+    			$(this).addClass("gbd");
+    		}else{
+    			$(this).removeClass("gbd");
+    		}
+    	});
+    }
+    function randomsort(a, b) {  
+        return Math.random()>.5 ? -1 : 1;  
+	} 
+    // 查询数组坐标
+    function returnArr(str){
+    	str = str+'元<p>加薪券</p>';
+    	for(var i = 0 ; i < arrText.length ; i++){
+    		 if(arrText[i] ==  str){
+    			 return i;
+    		 }
+    	}
+    	
+    }
+    
+    $('.closed').click(function(){
+    	$(this).parents('.alertMsg').hide();
+    	$('.mask').remove();
+    	$('.nowClick').show();
+    	isClick = true;
+	    })
+})
+</script>
+</html>
